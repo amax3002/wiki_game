@@ -12,7 +12,18 @@ class PagerendersController < ApplicationController
   def show
     @pagerender = Pagerender.find(params[:id])
     @page_to_render = HTTParty.get(@pagerender.url).html_safe
+
+
+    @page_to_render = Nokogiri::HTML.parse(@page_to_render)
+    @page_to_render.css('a').each do |link|
+      unless link["href"].nil?
+        link["href"] = "/wikipedia#{link["href"]}"
+      end
+    end
+
+    @page_to_render
   end
+
 
   # GET /pagerenders/new
   def new
@@ -64,13 +75,13 @@ class PagerendersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pagerender
-      @pagerender = Pagerender.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pagerender
+    @pagerender = Pagerender.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def pagerender_params
-      params.require(:pagerender).permit(:url)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def pagerender_params
+    params.require(:pagerender).permit(:url)
+  end
 end

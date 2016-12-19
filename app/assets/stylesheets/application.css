@@ -1,4 +1,45 @@
 
+/*Hide Notes, Reference, External Links*/
+ol.references, div.reflist, div.refbegin {
+  display: none;
+}
+html body.mediawiki .mbox-small {
+  display: none;
+}
+.infobox.sisterproject {
+  display: none;
+}
+
+/*Hide headers*/
+#General_Surveys, #Notes, #References, #Further_reading, #External_links, #mw-navigation, #catlinks, #footer, #See_also, #Sources, .mw-indicators {
+  display: none;
+}
+
+/*Hide edit next to sub headers*/
+.mw-editsection {
+    display: none;
+}
+
+.navbox, .navbox-subgroup {
+  display: none;
+}
+
+[arial_label="Portals"] {
+    display: none;
+}
+
+[role="navigation"] {
+    display: none;
+}
+
+.vertical-navbox.nowraplinks.infobox {
+  display: none;
+}
+.noprint.portal.plainlist.tright, .noprint.portal.plainlist.tleft {
+    display: none;
+}
+
+
 /*Remove underline form links*/
 a:-webkit-any-link {
     text-decoration: none;
@@ -398,43 +439,4 @@ div.gallerytext {
     font-size: 94%;
     padding: 2px 4px;
     word-wrap: break-word;
-}
-
-/*Hide Notes, Reference, External Links*/
-ol.references, div.reflist, div.refbegin {
-  display: none;
-}
-html body.mediawiki .mbox-small {
-  display: none;
-}
-.infobox.sisterproject {
-  display: none;
-}
-
-/*Hide headers*/
-#General_Surveys, #Notes, #References, #Further_reading, #External_links, #mw-navigation, #catlinks, #footer, #See_also {
-  display: none;
-}
-
-/*Hide edit next to sub headers*/
-.mw-editsection {
-    display: none;
-}
-
-.mw-content-ltr ul, .mw-content-rtl .mw-content-ltr ul {
-  display: none;
-}
-
-.navbox, .navbox-subgroup {
-  display: none;
-}
-
-[arial_label="Portals"] {
-    display: none;
-}
-.vertical-navbox.nowraplinks.infobox {
-  display: none;
-}
-.noprint.portal.plainlist.tright, .noprint.portal.plainlist.tleft {
-    display: none;
 }
