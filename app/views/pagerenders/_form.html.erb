@@ -1,0 +1,22 @@
+<%= form_for(pagerender) do |f| %>
+  <% if pagerender.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pagerender.errors.count, "error") %> prohibited this pagerender from being saved:</h2>
+
+      <ul>
+      <% pagerender.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Render Page", class: "btn btn-info" %>
+  </div>
+<% end %>
