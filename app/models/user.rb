@@ -2,7 +2,8 @@ class User < ApplicationRecord
   has_secure_password
 
   has_and_belongs_to_many :roles
-  has_and_belongs_to_many :players
+  has_many :players
+  has_many :moves, through: :players
 
   validates :email, uniqueness: true
 

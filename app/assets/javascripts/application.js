@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+
+importScript('User:Gary/enhanced random article.js'); // [[User:Gary/enhanced random article.js]]
