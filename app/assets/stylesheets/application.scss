@@ -1,3 +1,108 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*-------Application nav bar formating-------*/
+
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.nav, .navbar-header {
+    text-transform: uppercase;
+}
+.navbar-header {
+    float: left;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.container > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-header, .container-fluid > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+}
+ .navbar.navbar-inverse{
+     background-color: rgb(248, 248, 248);
+     border: none;
+     border-bottom: solid 1px rgb(180, 180, 180);
+     a {
+       color: rgb(110, 110, 110);
+     }
+     a:hover {
+      //  text-decoration: underline;
+       color: rgb(110, 110, 110);
+     }
+     ul li {
+       a {
+         color: rgb(110, 110, 110);
+       }
+       a:hover {
+         text-decoration: underline;
+         color: rgb(110, 110, 110);
+       }
+     }
+     height: 75px;
+     .navbar-nav {
+       padding-top: 13px;
+     }
+     .navbar-brand {
+       padding-top: 27px;
+     }
+     #logo {
+       padding-top: 11px;
+     }
+ }
+
+ .nav, .navbar-header {
+     text-transform: uppercase;
+  font-family: "Noto Sans";
+  color: rgb(75, 75, 75);
+  h1 {
+    color: #e05b49;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding-bottom: 20px;
+    margin-left: 12px;
+  }
+}
+.nav, .navbar-header{
+  text-transform: uppercase;
+}
+
+.dl-horizontal dd {
+    margin-left: 220px;
+}
+.dl-horizontal dt {
+  width: 200px;
+}
+#logo {
+  padding-top: 5px;
+  display: inline-block;
+}
+.welcome {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.featured {
+  border-radius: 50px;
+
+}
+.featured_link {
+  font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Hide Notes, Reference, External Links*/
 ol.references, div.reflist, div.refbegin {

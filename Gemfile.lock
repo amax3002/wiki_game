@@ -41,6 +41,12 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
+    autoprefixer-rails (6.5.3.1)
+      execjs
+    bcrypt (3.1.11)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
     cancancan (1.15.0)
@@ -205,6 +211,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
+  bootstrap-sass (~> 3.3.6)
   byebug
   cancancan
   coffee-rails (~> 4.2)
@@ -220,7 +228,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  sass-rails (~> 5.0)
+  sass-rails (>= 3.2)
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)

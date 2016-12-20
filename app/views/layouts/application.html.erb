@@ -1,16 +1,46 @@
-<!DOCTYPE html>
+
 <html>
   <head>
-    <title>WikiGame</title>
+    <title>Wikipedia Game</title>
     <%= csrf_meta_tags %>
-
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
-
   </head>
-
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+           <%= link_to image_tag('fun_wiki_logo.png', size: '50x50'), root_path, class: "navbar-brand", id:"logo" %>
+        </div>
+        <div class="collapse navbar-collapse" id="bakeshop-nav">
+          <ul class="nav navbar-nav">
+            <li>
+              <%= link_to "games", pagerenders_path %>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if current_user %>
+              <li><%= link_to "Log out", session_path, method: :delete %></li>
+              <li><%= link_to "View Profile", user_path(current_user.id) %></li>
+              <li class = "navbar-text"> Signed in as <%= current_user.full_name %></li>
+            <% else %>
+              <li><%= link_to "Log In", new_session_path %></li>
+              <li><%= link_to "Sign Up!", new_user_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-<%= type %>">
+          <%= msg %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+
+
   </body>
 </html>

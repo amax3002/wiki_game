@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'users/new'
-
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, except: [:index]
   resources :pagerenders
-
   get "/wikipedia/*path", to: "wikipedia#show"
-
+  root "welcome#index"
 end

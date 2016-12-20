@@ -1,0 +1,8 @@
+<h1>Edit My Information</h1>
+
+<%= link_to 'My Profile', user_path(current_user.id) %> |
+<%= link_to 'Back', pagerenders_path %>
+
+<hr>
+
+<%= render 'form', user: @user %>

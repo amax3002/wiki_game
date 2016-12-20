@@ -1,3 +1,15 @@
-// Place all the styles related to the wikipedia controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#logo {
+  padding-top: 5px;
+  display: inline-block;
+}
+.welcome {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+.featured {
+  border-radius: 50px;
+
+}
+.featured_link {
+  font-size: 30px;
+}
