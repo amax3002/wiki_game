@@ -11,17 +11,8 @@ class PagerendersController < ApplicationController
   # GET /pagerenders/1.json
   def show
     @pagerender = Pagerender.find(params[:id])
-    @page_to_render = HTTParty.get(@pagerender.url).html_safe
-
-
-    @page_to_render = Nokogiri::HTML.parse(@page_to_render)
-    @page_to_render.css('a').each do |link|
-      unless link["href"].nil?
-        link["href"] = "/wikipedia#{link["href"]}"
-      end
-    end
-
-    @page_to_render
+    wiki_path = URI(@pagerender.url).path
+    redirect_to "/wikipedia#{wiki_path}"
   end
 
 

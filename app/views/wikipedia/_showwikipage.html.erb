@@ -1,0 +1,5 @@
+<% if @won == true %>
+<h2>YOU WON!!!</h2>
+<% else %>
+<%= @page_to_render.to_s.html_safe %>
+<% end %>
