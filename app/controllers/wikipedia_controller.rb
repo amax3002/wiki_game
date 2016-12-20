@@ -1,5 +1,6 @@
 class WikipediaController < ApplicationController
   def show
+
     @page_to_render = HTTParty.get("https://en.wikipedia.org/#{params["path"]}").html_safe
 
     @page_to_render = Nokogiri::HTML.parse(@page_to_render)
@@ -8,6 +9,7 @@ class WikipediaController < ApplicationController
         link["href"] = "/wikipedia#{link["href"]}"
       end
     end
+
 
     if params["path"].split('/')[-1] == "Africa"
       @won = true

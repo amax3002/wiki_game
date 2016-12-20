@@ -1,15 +1,442 @@
-#logo {
-  padding-top: 5px;
-  display: inline-block;
-}
-.welcome {
-  padding-left: 100px;
-  padding-right: 100px;
-}
-.featured {
-  border-radius: 50px;
 
+/*Hide Notes, Reference, External Links*/
+ol.references, div.reflist, div.refbegin {
+  display: none;
 }
-.featured_link {
-  font-size: 30px;
+html body.mediawiki .mbox-small {
+  display: none;
+}
+.infobox.sisterproject {
+  display: none;
+}
+
+/*Hide headers*/
+#General_Surveys, #Notes, #References, #Further_reading, #External_links, #mw-navigation, #catlinks, #footer, #See_also, #Sources, .mw-indicators {
+  display: none;
+}
+
+/*Hide edit next to sub headers*/
+.mw-editsection {
+    display: none;
+}
+
+.navbox, .navbox-subgroup {
+  display: none;
+}
+
+[arial_label="Portals"] {
+    display: none;
+}
+
+[role="navigation"] {
+    display: none;
+}
+
+.vertical-navbox.nowraplinks.infobox {
+  display: none;
+}
+.noprint.portal.plainlist.tright, .noprint.portal.plainlist.tleft {
+    display: none;
+}
+
+
+/*Remove underline form links*/
+a:-webkit-any-link {
+    text-decoration: none;
+  }
+
+
+div {
+    display: block;
+    font-family: sans-serif;
+}
+
+.mw-body {
+    margin-left: 11em;
+    padding: 1.25em 1.5em 1.5em 1.5em;
+    border: 1px solid #a7d7f9;
+    border-right-width: 0;
+    margin-top: -1px;
+    background-color: #ffffff;
+    color: #252525;
+    direction: ltr;
+}
+
+#siteNotice {
+    font-size: 0.8em;
+    position: relative;
+    text-align: center;
+    margin: 0;
+}
+
+
+/*Header*/
+.mw-body .firstHeading {
+    overflow: visible;
+}
+.mw-body h1 {
+    font-size: 1.8em;
+}
+.mw-body h1, .mw-body h2 {
+    font-family: 'Linux Libertine',Georgia,Times,serif;
+    line-height: 1.3;
+    margin-bottom: 0.25em;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+    background: none;
+    font-weight: normal;
+    margin: 0;
+    overflow: hidden;
+    padding-top: .5em;
+    padding-bottom: .17em;
+    border-bottom: 1px solid #aaa;
+}
+
+/*Body Content*/
+.mw-body-content {
+    position: relative;
+    line-height: 1.6;
+    font-size: 0.875em;
+    z-index: 0;
+}
+#siteSub {
+    display: block;
+    font-size: 92%;
+}
+#contentSub, #contentSub2 {
+    font-size: 84%;
+    line-height: 1.2em;
+    margin: 0 0 1.4em 1em;
+    color: #545454;
+    width: auto;
+}
+
+/*Jump to Nav (Below Header)*/
+#jump-to-nav {
+    margin-top: -1.4em;
+    margin-bottom: 1.4em;
+}
+.mw-jump, #jump-to-nav {
+    overflow: hidden;
+    height: 0;
+    zoom: 1;
+}
+
+/*Content*/
+.mw-content-ltr {
+    direction: ltr;
+    line-height: 1.6;
+    font-size: 0.875em;
+}
+.mw-body {
+    margin-left: 10em;
+    padding: 1em;
+    border: 1px solid #a7d7f9;
+    border-right-width: 0;
+    margin-top: -1px;
+    background-color: #ffffff;
+    color: #252525;
+    direction: ltr;
+}
+div.hatnote {
+    padding-left: 1.6em;
+    margin-bottom: 0.5em;
+}
+.hatnote {
+    font-style: italic;
+}
+
+/*Note Above Table on right*/
+#tfd {
+  background-color: transparent;
+  padding: 0 0.2em;
+  color: #000;
+  text-align: center;
+  position: relative;
+  float: right;
+  border-bottom: 1px solid #AAAAAA;
+  width: 22em;
+  direction: ltr;
+}
+
+
+
+/*Main table top on the right*/
+.infobox.geography {
+    border-collapse: collapse;
+    line-height: 1.2em;
+    font-size: 90%;
+        width: 290px;
+}
+.infobox {
+    border: 1px solid #a2a9b1;
+    border-spacing: 3px;
+    background-color: #f8f9fa;
+    color: black;
+    margin: 0.5em 0 0.5em 1em;
+    padding: 0.2em;
+    float: right;
+    clear: right;
+    font-size: 88%;
+    line-height: 1.5em;
+         width: 290px;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+/*Main table 2nd top on the right*/
+.vertical-navbox.vcard.plainlist {
+  float: right;
+    clear: right;
+    width: 22.0em;
+    margin: 0 0 1.0em 1.0em;
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    padding: 0.2em;
+    border-spacing: 0.4em 0;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 88%;
+}
+.mw-body p {
+    line-height: inherit;
+    margin: 0.5em 0;
+}
+
+/*Navigation table for links on page*/
+#toc, .toc {
+    display: inline-block;
+    display: table;
+    zoom: 1;
+    padding: 7px;
+}
+#toc, .toc, .mw-warning, .toccolours {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    font-size: 95%;
+}
+#toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle {
+    text-align: center;
+        direction: ltr;
+}
+#toc, .toc, .mw-warning, .toccolours {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    font-size: 95%;
+}
+.toctoggle {
+    font-size: 94%;
+}
+
+/*Content within Nav Table*/
+.mw-content-ltr .toc ul, .mw-content-ltr #toc ul, .mw-content-rtl .mw-content-ltr .toc ul, .mw-content-rtl .mw-content-ltr #toc ul {
+    text-align: left;
+}
+#toc ul, .toc ul {
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: 0;
+    padding: 0;
+    text-align: left;
+    margin: .3em 0;
+  }
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+#toc, .toc {
+    display: inline-block;
+    display: table;
+    zoom: 1;
+    padding: 7px;
+}
+
+#toc, .toc, .mw-warning, .toccolours {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    font-size: 95%;
+}
+
+li {
+    margin-bottom: .1em;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.mw-content-ltr .tocnumber {
+    padding-left: 0;
+    padding-right: 0.5em;
+}
+.tocnumber {
+    padding-left: 0;
+    padding-right: 0.5em;
+    color: #222;
+}
+.tocnumber, .toctext {
+    display: table-cell;
+    text-decoration: inherit;
+}
+
+/*Adds indents to the info in the Nav Table*/
+.mw-content-ltr .toc ul ul, .mw-content-ltr #toc ul ul, .mw-content-rtl .mw-content-ltr .toc ul ul, .mw-content-rtl .mw-content-ltr #toc ul ul {
+    margin: 0 0 0 2em;
+}
+#toc ul ul, .toc ul ul {
+    margin: 0 0 0 2em;
+}
+#toc ul, .toc ul {
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: 0;
+    padding: 0;
+    text-align: left;
+}
+
+
+/*Headers for topics*/
+.mw-body h2 {
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+.mw-body h1, .mw-body h2 {
+    font-family: 'Linux Libertine',Georgia,Times,serif;
+    line-height: 1.3;
+    margin-bottom: 0.25em;
+    padding: 0;
+}
+
+/*Main Article*/
+div.hatnote {
+    padding-left: 1.6em;
+    margin-bottom: 0.5em;
+}
+.hatnote {
+    font-style: italic;
+}
+/*Notes below Notes*/
+div.hatnote + div.hatnote {
+    margin-top: -0.5em;
+}
+
+/*Headers within Sub Topics*/
+.mw-body h3, .mw-body h4 {
+    font-weight: bold;
+}
+.mw-body h3 {
+    font-size: 1.2em;
+}
+.mw-body h3, .mw-body h4, .mw-body h5, .mw-body h6 {
+    line-height: 1.6;
+    margin-top: 0.3em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+/*h4 styling*/
+.mw-body h4, .mw-body h5, .mw-body h6 {
+    font-size: 100%;
+}
+
+/*Picture on left in text*/
+div.tleft {
+    margin: .5em 1.4em 1.3em 0;
+}
+div.thumb {
+    margin-bottom: .5em;
+    width: auto;
+    background-color: transparent;
+}
+div.tleft, div.floatleft, table.floatleft {
+    float: left;
+    clear: left;
+}
+/*Picture on right in text*/
+div.tright {
+    margin: .5em 0 1.3em 1.4em;
+}
+
+div.thumb {
+    margin-bottom: .5em;
+    width: auto;
+    background-color: transparent;
+}
+div.tright, div.floatright, table.floatright {
+    clear: right;
+    float: right;
+}
+
+/*sub tables in text*/
+table.ambox-content {
+    border-left: 10px solid #f28500;
+}
+table.ambox {
+    margin: 0 10%;
+    border: 1px solid #a2a9b1;
+    border-left: 10px solid #36c;
+    background: #fbfbfb;
+}
+/*Picture and text in this sub box*/
+.ambox td.mbox-image {
+    padding: 2px 0 2px 0.5em;
+}
+td.mbox-image {
+    border: none;
+    padding: 2px 0 2px 0.9em;
+    text-align: center;
+}
+.ambox th.mbox-text, .ambox td.mbox-text {
+    padding: 0.25em 0.5em;
+}
+th.mbox-text, td.mbox-text {
+    border: none;
+    padding: 0.25em 0.9em;
+    width: 100%;
+}
+
+/*Gallary(multible picture side my side)*/
+ul.mw-gallery-packed-hover, ul.mw-gallery-packed-overlay, ul.mw-gallery-packed {
+    text-align: center;
+}
+ul.gallery {
+    margin: 2px;
+    padding: 2px;
+    display: block;
+}
+ul.gallery, li.gallerybox {
+    zoom: 1;
+}
+li.gallerybox {
+    vertical-align: top;
+    display: -moz-inline-box;
+    display: inline-block;
+}
+div.gallerytext {
+    overflow: hidden;
+    font-size: 94%;
+    padding: 2px 4px;
+    word-wrap: break-word;
 }

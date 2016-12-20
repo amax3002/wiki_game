@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Game.create(
+  start_point: "https://en.wikipedia.org/wiki/Ottoman_Empire",
+  end_point: "https://en.wikipedia.org/wiki/Love"
+)

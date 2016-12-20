@@ -2,47 +2,47 @@ require 'test_helper'
 
 class PagerendersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @pagerender = pagerenders(:one)
+    @game = games(:one)
   end
 
   test "should get index" do
-    get pagerenders_url
+    get games_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_pagerender_url
+    get new_game_url
     assert_response :success
   end
 
-  test "should create pagerender" do
+  test "should create game" do
     assert_difference('Pagerender.count') do
-      post pagerenders_url, params: { pagerender: { url: @pagerender.url } }
+      post games_url, params: { game: { url: @game.url } }
     end
 
-    assert_redirected_to pagerender_url(Pagerender.last)
+    assert_redirected_to game_url(Pagerender.last)
   end
 
-  test "should show pagerender" do
-    get pagerender_url(@pagerender)
+  test "should show game" do
+    get game_url(@game)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_pagerender_url(@pagerender)
+    get edit_game_url(@game)
     assert_response :success
   end
 
-  test "should update pagerender" do
-    patch pagerender_url(@pagerender), params: { pagerender: { url: @pagerender.url } }
-    assert_redirected_to pagerender_url(@pagerender)
+  test "should update game" do
+    patch game_url(@game), params: { game: { url: @game.url } }
+    assert_redirected_to game_url(@game)
   end
 
-  test "should destroy pagerender" do
+  test "should destroy game" do
     assert_difference('Pagerender.count', -1) do
-      delete pagerender_url(@pagerender)
+      delete game_url(@game)
     end
 
-    assert_redirected_to pagerenders_url
+    assert_redirected_to games_url
   end
 end

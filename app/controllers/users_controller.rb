@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     session["message"] = "you signed up!"
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to pagerenders_path
+      redirect_to games_path
     else
       render :new
     end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params["id"])
     @user.destroy
-    redirect_to pagerenders_path, notice: "Account was successfully destroyed."
+    redirect_to games_path, notice: "Account was successfully destroyed."
   end
 
   private
