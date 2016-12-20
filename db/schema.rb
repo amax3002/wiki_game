@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220201224) do
+ActiveRecord::Schema.define(version: 20161220213058) do
 
   create_table "games", force: :cascade do |t|
     t.string   "start_point"
@@ -21,14 +21,7 @@ ActiveRecord::Schema.define(version: 20161220201224) do
 
   create_table "moves", force: :cascade do |t|
     t.integer  "player_id"
-    t.string   "from_point"
     t.string   "to_point"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pagerenders", force: :cascade do |t|
-    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

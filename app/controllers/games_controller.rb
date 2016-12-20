@@ -12,6 +12,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     wiki_path = URI(@game.start_point).path
+    Player.create(user_id: current_user.id, game_id: @game.id)
     redirect_to "/wikipedia#{wiki_path}"
   end
 

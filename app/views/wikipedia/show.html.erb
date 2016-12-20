@@ -1,6 +1,7 @@
 <h1>Show Link Page
 <small>
-  <%= @click_counter %>
+  <%= Move.group(:player_id).count %>
+
 </small></h1>
 
 <%= render 'showwikipage', game: @game %>
