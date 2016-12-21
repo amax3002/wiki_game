@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
-  has_and_belongs_to_many :players
+  has_many :players
+  has_many :moves, through: :players
 
   def replace_appostrophie_s
     self.gsub!("%27s","\'s'")

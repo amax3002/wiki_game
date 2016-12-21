@@ -105,6 +105,9 @@
 
 
 /*Hide Notes, Reference, External Links*/
+.plainlinks.metadata.ambox.ambox-style, .plainlinks.metadata.ambox.ambox-content {
+    display: none;
+}
 ol.references, div.reflist, div.refbegin {
   display: none;
 }
@@ -544,4 +547,8 @@ div.gallerytext {
     font-size: 94%;
     padding: 2px 4px;
     word-wrap: break-word;
+}
+
+span.end_display {
+    display:block;
 }

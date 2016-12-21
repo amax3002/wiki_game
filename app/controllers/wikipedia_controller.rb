@@ -11,8 +11,7 @@ class WikipediaController < ApplicationController
       end
     end
     Move.create(player_id: current_user.id, to_point: link_path)
-
-    if params["path"].split('/')[-1] == "Africa"
+    if params["path"].split('/')[-1] == (URI(current_game.end_point).path).split('/')[-1]
       @won = true
       return @won
     end

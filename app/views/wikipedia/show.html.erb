@@ -1,7 +1,11 @@
-<h1>Show Link Page
-<small>
-  <%= Move.where(:player_id => current_user.id).count %>
+<h1>Play!</h1>
 
-</small></h1>
+
+<h3>Starting Point:  <%= ((URI(current_game.start_point).path).split('/')[-1]).tr!('_', ' ') %>
+  <span class="end_display"> Ending Point: <%= ((URI(current_game.end_point).path).split('/')[-1]).tr!('_', ' ') %> </span>
+  <small>
+    Current Number of Moves: <%= Move.where(:player_id => current_user.id).count %>
+  </small>
+</h3>
 
 <%= render 'showwikipage', game: @game %>

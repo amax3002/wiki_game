@@ -11,6 +11,7 @@ class GamesController < ApplicationController
   # GET /games/1.json
   def show
     @game = Game.find(params[:id])
+    session[:game_id] = @game.id
     wiki_path = URI(@game.start_point).path
     Player.create(user_id: current_user.id, game_id: @game.id)
     redirect_to "/wikipedia#{wiki_path}"
@@ -29,7 +30,7 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(game_params)
+    @game = Game.create(start_point: HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri, end_point: HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri)
 
     respond_to do |format|
       if @game.save
