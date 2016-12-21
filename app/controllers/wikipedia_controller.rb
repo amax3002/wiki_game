@@ -10,7 +10,11 @@ class WikipediaController < ApplicationController
         link["href"] = "/wikipedia#{link["href"]}"
       end
     end
-    Move.create(player_id: current_user.id, to_point: link_path)
+
+    Move.create(player_id: current_player.id, to_point: link_path)
+
+
+
     if params["path"].split('/')[-1] == (URI(current_game.end_point).path).split('/')[-1]
       @won = true
       return @won

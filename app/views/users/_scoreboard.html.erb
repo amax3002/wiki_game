@@ -1,0 +1,39 @@
+
+<h1>
+  <%= @user.full_name %>'s Details
+</h1>
+
+<hr>
+
+<div class = "row">
+  <div class = "col-md-3">
+    Game start
+  </div>
+  <div class = "col-md-3">
+    Game end
+  </div>
+  <div <div class="col-md-3">
+    Number of Moves
+  </div>
+  <div <div class="col-md-3">
+    Win?
+  </div>
+</div>
+
+<hr>
+<div class = "row">
+  <% Player.where(:user_id => current_user.id).each do |x| %>
+    <div class = "col-md-3">
+      <%= (Game.find_by(id: x.game_id).start_point).split('/')[-1] %>
+    </div>
+    <div class = "col-md-3">
+      <%= (Game.find_by(id: x.game_id).end_point).split('/')[-1] %>
+    </div>
+    <div <div class="col-md-3">
+      <%= Move.includes("users").where(:player_id => Player.where(:user_id => current_user.id, :game_id => x.game_id)).count %>
+    </div>
+    <div <div class="col-md-3">
+      Number of Moves
+    </div>
+  <% end %>
+</div>

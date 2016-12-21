@@ -4,7 +4,7 @@
 <h3>Starting Point:  <%= ((URI(current_game.start_point).path).split('/')[-1]).tr!('_', ' ') %>
   <span class="end_display"> Ending Point: <%= ((URI(current_game.end_point).path).split('/')[-1]).tr!('_', ' ') %> </span>
   <small>
-    Current Number of Moves: <%= Move.where(:player_id => current_user.id).count %>
+    Current Number of Moves: <%= Move.where(:player_id => current_player.id).count %>
   </small>
 </h3>
 
