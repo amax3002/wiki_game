@@ -8,8 +8,8 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
   test "should decalre winner" do
     get games_path
-    b = games(:one).winner?
-    assert_equal true, b
+    b = games(:Game1).winner?(users(:Alex))
+    assert_equal "WON!", b
   end
 
 end

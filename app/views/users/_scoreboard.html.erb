@@ -21,7 +21,7 @@
 </div>
 
 <hr>
-<div class = "row">h
+<div class = "row">
   <% Player.where(:user_id => current_user.id).each do |x| %>
     <div class = "col-md-3">
       <%= (Game.find_by(id: x.game_id).start_point).split('/')[-1] %>

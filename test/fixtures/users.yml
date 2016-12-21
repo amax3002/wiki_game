@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+Alex:
   full_name: Alexandre Guy
   email: amax3002@gmail.com
   password_digest: password
 
-two:
-  full_name: MyString
-  email: MyString
+Laurent:
+  full_name: Laurent Guy
+  email: lguy@comcast.net
   password_digest: password
