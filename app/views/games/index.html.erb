@@ -17,14 +17,18 @@
       <tr>
         <td><%= game.start_point.split('/')[-1] %></td>
         <td><%= game.end_point.split('/')[-1] %></td>
-        <td><%= link_to 'Play', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Play', game, class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= link_to 'Play Random Game', new_game_path, class: "btn btn-large btn-primary"  %>
+
 <br>
-<%= link_to 'Play New Game', new_game_path %>
+<br>
+<br>
