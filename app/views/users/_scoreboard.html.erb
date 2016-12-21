@@ -21,7 +21,7 @@
 </div>
 
 <hr>
-<div class = "row">
+<div class = "row">h
   <% Player.where(:user_id => current_user.id).each do |x| %>
     <div class = "col-md-3">
       <%= (Game.find_by(id: x.game_id).start_point).split('/')[-1] %>
@@ -33,7 +33,7 @@
       <%= Move.includes("users").where(:player_id => Player.where(:user_id => current_user.id, :game_id => x.game_id)).count %>
     </div>
     <div <div class="col-md-3">
-      Number of Moves
+      <%= Game.find_by(id: x.game_id).winner?(current_user) %>
     </div>
   <% end %>
 </div>

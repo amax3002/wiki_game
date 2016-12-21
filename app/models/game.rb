@@ -5,4 +5,13 @@ class Game < ApplicationRecord
   def replace_appostrophie_s
     self.gsub!("%27s","\'s'")
   end
+
+  def winner?(current_user_input)
+    if (Move.where(:player_id => Player.where(:game_id => self.id, :user_id => current_user_input.id), :to_point => self.end_point).present?) == true
+      return "WON!"
+    else
+      return "Did not Finish....weak"
+    end
+  end
+
 end

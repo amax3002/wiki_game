@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  player_id: 1
-  from_point: MyString
-  to_point: MyString
+  player: one
+  to_point: https://en.wikipedia.org/wiki/John_Bukovsky
 
 two:
-  player_id: 1
-  from_point: MyString
-  to_point: MyString
+  player: two
+  to_point: https://en.wikipedia.org/wiki/John_Bukovsky

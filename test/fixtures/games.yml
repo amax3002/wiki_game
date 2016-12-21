@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_point: MyString
-  end_point: MyString
+  start_point: https://en.wikipedia.org/wiki/Ottoman_Empire
+  end_point: https://en.wikipedia.org/wiki/John_Bukovsky
 
 two:
   start_point: MyString
