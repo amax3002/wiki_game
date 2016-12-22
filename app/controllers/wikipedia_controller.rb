@@ -6,7 +6,7 @@ class WikipediaController < ApplicationController
 
     @page_to_render = Nokogiri::HTML.parse(@page_to_render)
     @page_to_render.css('a').each do |link|
-      unless link["href"].nil?
+      unless link["href"].nil? || link["href"].include?("#")
         link["href"] = "/wikipedia#{link["href"]}"
       end
     end

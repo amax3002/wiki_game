@@ -12,4 +12,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "WON!", b
   end
 
+  test "should get word count for article" do
+    get games_path
+    b = games(:Game1).word_count
+    assert_equal 18666, b
+  end
+
 end

@@ -12,33 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-
-$(function() {
-
-  $("#search").on("click", function() {
-    var searchTerm = $("searchTerm").val();
-    var url = "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + searchTerm + "&format=json&callback=?";
-    $.ajax({
-      url: url,
-      type: 'GET',
-      contentType: "application/json; charset=utf-8",
-      async: false,
-      dataType: 'json',
-      data function(data, status, jqXHR){
-        console.log(data);
-      },
-    })
-    .done(function() {
-      console.log("success");
-    })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    })
-  });
-});

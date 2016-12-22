@@ -28,10 +28,11 @@ class GamesController < ApplicationController
   def edit
   end
 
-  # POST /games
-  # POST /games.json
+
   def create
-    @game = Game.create(start_point: HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri, end_point: HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri)
+    data_start = WikiData.new().article_size_generate
+    data_end = WikiData.new().article_size_generate
+    @game = Game.create(start_point: data_start, end_point: data_end)
 
     respond_to do |format|
       if @game.save

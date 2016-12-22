@@ -1,8 +1,8 @@
 <h1>Play!</h1>
 
 
-<h3>Starting Point:  <%= ((URI(current_game.start_point).path).split('/')[-1]).tr!('_', ' ') %>
-  <span class="end_display"> Ending Point: <%= ((URI(current_game.end_point).path).split('/')[-1]).tr!('_', ' ') %> </span>
+<h3>Starting Point:  <%= (((URI(current_game.start_point).path).split('/')[-1]).tr!('_', ' ')).gsub("%27","\'") %>
+  <span class="end_display"> Ending Point: <%= (((URI(current_game.end_point).path).split('/')[-1]).tr!('_', ' ')).gsub("%27","\'") %> </span>
   <small>
     Current Number of Moves: <%= Move.where(:player_id => current_player.id).count %>
   </small>
