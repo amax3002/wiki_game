@@ -22,6 +22,7 @@ class WikiData
 
   def parse_wiki_page(html_input)
     parsed_data = Nokogiri::HTML.parse(html_input).search('#content')
+    parsed_data.search('.mw-editsection', '.reflist.references-column-width', '#References', '#External_links', '.external.text', '.navbox').remove
     parsed_data.css('a').each do |link|
       unless link["href"].nil? || link["href"].include?("#")
         link["href"] = "/wikipedia#{link["href"]}"

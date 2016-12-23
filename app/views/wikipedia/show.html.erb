@@ -3,9 +3,11 @@
 
 <h3>Starting Point:  <%= current_game_start_name %>
   <%= render 'imageinfo', url_location: current_game.start_point %>
+  <br>
   <span class="end_display"> Ending Point: <%= current_game_end_name %>
     <%= render 'imageinfo', url_location: current_game.end_point %>
   </span>
+  <br>
   <small>
     Current Number of Moves: <%= game_move_count %>
   </small>

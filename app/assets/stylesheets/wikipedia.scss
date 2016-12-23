@@ -1,4 +1,11 @@
+body{
+  background-color: #e6e6e6;
+}
+#end_display {
+  display:block;
+}
 .wikipedia {
+            border: 1px solid black;
 
   .mw-cite-backlink,.cite-accessibility-label {
       -moz-user-select: none;
@@ -667,20 +674,39 @@
           background-color: #e1fddf
       }
 
-      .mw-infobox {
-          border: 2px solid #ff7f00;
-          margin: 0.5em;
-          clear: left;
-          overflow: hidden
+      .infobox {
+        display: block;
+        border: 1px solid #a2a9b1;
+        border-spacing: 3px;
+        background-color: #f8f9fa;
+        color: black;
+        margin: 0.5em 0 0.5em 1em;
+        padding: 0.2em;
+        float: right;
+        clear: right;
+        font-size: 88%;
+        line-height: 1.5em;
+        width: 22em;
       }
 
-      .mw-infobox-left {
+      tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      .infobox td, .infobox th {
+        vertical-align: top;
+        text-align: left;
+      }
+
+      .infobox-left {
           margin: 7px;
           float: left;
           width: 35px
       }
 
-      .mw-infobox-right {
+      .infobox-right {
           margin: 0.5em 0.5em 0.5em 49px
       }
 
@@ -828,7 +854,7 @@
           unicode-bidi: embed
       }
 
-      #mw-revision-info,#mw-revision-info-current,#mw-revision-nav {
+      #revision-info,#revision-info-current,#revision-nav {
           direction: ltr
       }
 
@@ -1284,6 +1310,7 @@
           font-size: 100%
       }
 
+
       fieldset {
           border: 1px solid #2f6fab;
           margin: 1em 0 1em 0;
@@ -1619,11 +1646,8 @@
       }
 
       .mw-body {
-          margin-left: 10em;
           padding: 1em;
-          border: 1px solid #a7d7f9;
           border-right-width: 0;
-          margin-top: -1px;
           background-color: #ffffff;
           color: #252525;
           direction: ltr
@@ -2415,7 +2439,6 @@
 
   @media screen and (min-width: 982px) {
       .mw-body {
-          margin-left:11em;
           padding: 1.25em 1.5em 1.5em 1.5em
       }
 
@@ -2484,5 +2507,9 @@
       display: block
   }
 
+  div.hatnote {
+    padding-left: 1.6em;
+    margin-bottom: 0.5em;
+  }
 
 }
