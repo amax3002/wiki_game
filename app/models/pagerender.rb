@@ -1,2 +1,0 @@
-class Pagerender < ApplicationRecord
-end

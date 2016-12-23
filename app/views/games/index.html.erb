@@ -2,7 +2,7 @@
 
 <h1>Choose Game</h1>
 
-<table>
+<table id="game_index">
   <thead>
     <tr>
       <th>Starting Point</th>
@@ -15,8 +15,8 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.start_point.split('/')[-1] %></td>
-        <td><%= game.end_point.split('/')[-1] %></td>
+        <td><%= name_url_cleanup(game.start_point) %></td>
+        <td><%= name_url_cleanup(game.end_point) %></td>
         <td><%= link_to 'Play', game, class: "btn btn-info" %></td>
         <td><%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %></td>
         <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>

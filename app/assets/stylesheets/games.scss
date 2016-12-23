@@ -1,6 +1,28 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  color: red;
+
+
+#game_index {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+#game_index td, #game_index th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#game_index tr:nth-child(even){background-color: #f2f2f2;}
+
+#game_index tr:hover {background-color: #ddd;}
+
+#game_index th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
 }

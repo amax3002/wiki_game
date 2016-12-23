@@ -21,5 +21,4 @@ class Game < ApplicationRecord
   def create_end_wiki_path
     URI(self.end_point).path
   end
-
 end
