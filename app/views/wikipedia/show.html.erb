@@ -7,7 +7,7 @@
     <%= render 'imageinfo', url_location: current_game.end_point %>
   </span>
   <small>
-    Current Number of Moves: <%= Move.where(:player_id => current_player.id).count %>
+    Current Number of Moves: <%= game_move_count %>
   </small>
 </h3>
 

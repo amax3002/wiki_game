@@ -22,8 +22,4 @@ class Game < ApplicationRecord
     URI(self.end_point).path
   end
 
-  def name_formating_from_url
-    self.split('/')[-1]
-  end
-
 end
