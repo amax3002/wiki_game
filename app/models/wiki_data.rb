@@ -5,7 +5,7 @@ class WikiData
     flag = false
     until flag
       article = URI(HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri).path
-      flag = word_count(article) > 10000
+      flag = word_count(article) > 5_000
       counter += 1
       puts "#{counter}: #{word_count(article)}"
       break if counter > 10
@@ -19,6 +19,4 @@ class WikiData
     words = doc.gsub("\n","").gsub("\t","")
     words.size
   end
-
-
 end
