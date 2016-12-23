@@ -22,9 +22,10 @@ class GamesController < ApplicationController
   end
 
   def create
-    data_start = WikiData.new().article_size_generate
-    data_end = WikiData.new().article_size_generate
-    @game = Game.create(start_point: data_start, end_point: data_end)
+    @game = Game.create(
+      start_point: WikiData.new.article_size_generate,
+      end_point: WikiData.new.article_size_generate
+    )
 
     respond_to do |format|
       if @game.save
