@@ -15,5 +15,4 @@ class ApplicationController < ActionController::Base
   def current_player
     Player.find_by(id: session[:player_id])
   end
-
 end

@@ -13,20 +13,17 @@ class Game < ApplicationRecord
       return "Did not Finish....weak"
     end
   end
-  # 
-  # def word_count
-  #   doc = (Nokogiri::HTML.parse(HTTParty.get(self.start_point))).text
-  #   words = doc.gsub("\n","").gsub("\t","").gsub("\n","").gsub("\n","").gsub("  ", " ").split(' ')
-  #
-  #   words.size
-  # end
-  #
-  # def article_size_generate
-  #   until true
-  #     article = HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri
-  #     article.word_count > 5000
-  #   end
-  #   article
-  # end
+
+  def create_start_wiki_path
+    URI(self.start_point).path
+  end
+
+  def create_end_wiki_path
+    URI(self.end_point).path
+  end
+
+  def name_formating_from_url
+    self.split('/')[-1]
+  end
 
 end

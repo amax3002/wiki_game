@@ -1,10 +1,10 @@
 <h1>Play!</h1>
 
 
-<h3>Starting Point:  <%= (((URI(current_game.start_point).path).split('/')[-1]).tr('_', ' ')).to_s.gsub("%27","\'") %>
-  <%= link_to image_tag('info.png', size: '15x15'), "https://en.wikipedia.org#{current_game.start_point}", :target => "_blank" %>
-  <span class="end_display"> Ending Point: <%= (((URI(current_game.end_point).path).split('/')[-1]).tr('_', ' ')).to_s.gsub("%27","\'") %>
-    <%= link_to image_tag('info.png', size: '15x15'), "https://en.wikipedia.org#{current_game.end_point}", :target => "_blank" %>
+<h3>Starting Point:  <%= current_game_start_name %>
+  <%= render 'imageinfo', url_location: current_game.start_point %>
+  <span class="end_display"> Ending Point: <%= current_game_end_name %>
+    <%= render 'imageinfo', url_location: current_game.end_point %>
   </span>
   <small>
     Current Number of Moves: <%= Move.where(:player_id => current_player.id).count %>

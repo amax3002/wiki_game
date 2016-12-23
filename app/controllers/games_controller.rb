@@ -1,33 +1,25 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
-  # GET /games
-  # GET /games.json
   def index
     @games = Game.all
   end
 
-  # GET /games/1
-  # GET /games/1.json
   def show
     @game = Game.find(params[:id])
     session[:game_id] = @game.id
-    wiki_path = URI(@game.start_point).path
+    wiki_path = @game.create_start_wiki_path
     @player = Player.create(user_id: current_user.id, game_id: @game.id)
     session[:player_id] = @player.id
     redirect_to "/wikipedia#{wiki_path}"
   end
 
-
-  # GET /games/new
   def new
     @game = Game.new
   end
 
-  # GET /games/1/edit
   def edit
   end
-
 
   def create
     data_start = WikiData.new().article_size_generate
@@ -45,8 +37,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
-  # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
       if @game.update(game_params)
@@ -59,8 +49,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
-  # DELETE /games/1.json
   def destroy
     @game.destroy
     respond_to do |format|
@@ -70,12 +58,11 @@ class GamesController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_game
     @game = Game.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def game_params
     params.require(:game).permit(:start_point, :end_point)
   end
