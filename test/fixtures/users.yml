@@ -3,7 +3,7 @@
 Alex:
   full_name: Alexandre Guy
   email: amax3002@gmail.com
-  password_digest: password
+  password_digest: <%= BCrypt::Password.create('password', cost: 4) %>
 
 Laurent:
   full_name: Laurent Guy

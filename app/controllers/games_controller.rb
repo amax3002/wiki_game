@@ -10,6 +10,7 @@ class GamesController < ApplicationController
     session[:game_id] = @game.id
     wiki_path = @game.create_start_wiki_path
     @player = Player.create(user_id: current_user.id, game_id: @game.id)
+
     session[:player_id] = @player.id
     redirect_to "/wikipedia#{wiki_path}"
   end
