@@ -24,9 +24,9 @@
         <% if current_user && current_user.admin? %>
           <td><%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %></td>
           <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-          <td><%= link_to 'Show Leaderboard', game_leaderboard_index_path(game), class: "btn btn-primary" %></td>
+          <td><%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %></td>
         <% else %>
-          <td><%= link_to 'Show Leaderboard', game_leaderboard_index_path(game), class: "btn btn-warning" %></td>
+          <td><%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-warning" %></td>
         <% end %>
       </tr>
     <% end %>

@@ -1,2 +1,40 @@
-<h1>Leaderboards#index</h1>
-<p>Find me in app/views/leaderboards/index.html.erb</p>
+
+<h1>
+  Scoreboard: <small> <%= name_url_cleanup(@game.start_point) %>  -  <%= name_url_cleanup(@game.end_point) %> </small>
+</h1>
+
+<hr>
+
+<div class = "row">
+  <div class = "col-md-3">
+    User Name
+  </div>
+  <div class = "col-md-3">
+    Number of Moves
+  </div>
+  <div <div class="col-md-3">
+    Win?
+  </div>
+  <div <div class="col-md-3">
+    Date Played
+  </div>
+</div>
+
+<hr>
+<div class = "row">
+  <% User.where(:id => Player.where(:game_id => @game.id)).each do |x| %>
+    <div class = "col-md-3">
+      <%= x.full_name %>
+    </div>
+    <div <div class="col-md-3">
+      <%= Move.includes("users").where(:player_id => Player.where(:user_id => x.id, :game_id => @game.id)).count %>
+    </div>
+    <div <div class="col-md-3">
+      <%= Game.find_by(id: @game.id).winner?(x) %>
+    </div>
+    <div <div class="col-md-3">
+
+      <%= (Move.where(:player_id => Player.where(:user_id => x.id, :game_id => @game.id)).order('created_at DESC').limit(1).find{|el| el[:created_at]}[:created_at]).to_formatted_s(:short)  %>
+    </div>
+  <% end %>
+</div>
