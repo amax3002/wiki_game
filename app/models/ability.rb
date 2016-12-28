@@ -3,10 +3,14 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    # if user.admin?
+    if user.admin?
       can :manage, :all
-    # else
-    #   can :manage, :all
-    # end
+    end
+    can :read, Game
+    can :read, Leaderboard
+    can :manage, User, id: user.id
+    can :create, Game
+    can :create, Move
+    can :create, Player
   end
 end
