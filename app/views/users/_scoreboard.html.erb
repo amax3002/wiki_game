@@ -1,39 +1,41 @@
 
 <h1>
-  <%= @user.full_name %>'s Details
+  <%= @user.full_name %>'s Game Record
 </h1>
 
 <hr>
 
-<div class = "row">
-  <div class = "col-md-3">
-    Game start
-  </div>
-  <div class = "col-md-3">
-    Game end
-  </div>
-  <div <div class="col-md-3">
-    Number of Moves
-  </div>
-  <div <div class="col-md-3">
-    Win?
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
+<div class="container">
+  <div class="table-responsive">
+    <table id="game_index" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>Game Start</th>
+          <th>Game End</th>
+          <th>Number of Moves</th>
+          <th>Win?</th>
+          <th>Time Taken</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% Player.where(:user_id => current_user.id).each do |x| %>
+        <tr>
+          <td><%= name_url_cleanup(Game.find_by(id: x.game_id).start_point)%></td>
+          <td><%= name_url_cleanup(Game.find_by(id: x.game_id).end_point) %></td>
+          <td class="col-md-2"><%= Move.includes("users").where(:player_id => Player.where(:user_id => current_user.id, :game_id => x.game_id)).count %></td>
+          <td><%= Game.find_by(id: x.game_id).winner?(current_user) %></td>
+          <td class="col-md-2"><%= gametimer_leaderboard(Game.find_by(id: x.game_id), User.find_by(id: x.user_id)) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 
-<hr>
-<div class = "row">
-  <% Player.where(:user_id => current_user.id).each do |x| %>
-    <div class = "col-md-3">
-      <%= (Game.find_by(id: x.game_id).start_point).split('/')[-1] %>
-    </div>
-    <div class = "col-md-3">
-      <%= (Game.find_by(id: x.game_id).end_point).split('/')[-1] %>
-    </div>
-    <div <div class="col-md-3">
-      <%= Move.includes("users").where(:player_id => Player.where(:user_id => current_user.id, :game_id => x.game_id)).count %>
-    </div>
-    <div <div class="col-md-3">
-      <%= Game.find_by(id: x.game_id).winner?(current_user) %>
-    </div>
-  <% end %>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>

@@ -29,3 +29,10 @@ $(function() {
 $(document).ready(function() {
     $('#game_index').DataTable();
 } );
+
+
+function decode() {
+    var obj = document.getElementById('dencoder');
+    var encoded = obj.value;
+    obj.value = decodeURIComponent(encoded.replace(/\+/g,  " "));
+}
