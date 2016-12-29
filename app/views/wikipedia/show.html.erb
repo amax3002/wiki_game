@@ -1,17 +1,23 @@
 <h1>Play!</h1>
 
-
-<h3>Starting Point:  <%= current_game_start_name %>
-  <%= render 'imageinfo', url_location: current_game.start_point %>
-  <br>
-  <span class="end_display"> Ending Point: <%= current_game_end_name %>
-    <%= render 'imageinfo', url_location: current_game.end_point %>
-  </span>
-  <br>
-  <small>
-    Current Number of Moves: <%= game_move_count %>
-  </small>
-  <p>Game Timer: <%= gametimer(current_game)%></p>
-</h3>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Starting Point:  <%= current_game_start_name %>
+        <%= render 'imageinfo', url_location: current_game.start_point %>
+        <br>
+        <span class="end_display"> Ending Point: <%= current_game_end_name %>
+          <%= render 'imageinfo', url_location: current_game.end_point %>
+        </span>
+      </h3>
+    </div>
+      <div class="col-md-6">
+        <span class="pull-right">
+        <h3>  Current Number of Moves: <%= game_move_count %>
+          <br>
+          Game Timer: <%= gametimer(current_game)%></h3>
+        </span>
+      </div>
+    </div>
+</div>
 <%= render 'showwikipage', game: @game %>
