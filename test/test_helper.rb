@@ -7,4 +7,12 @@ SimpleCov.start 'rails'
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
+
+  def new_session(user)
+   post session_path, params: { username: users(user).email, password: "password" }
+  end
+
+  def new_game(game)
+   post games_path, params: { start_point: games(game).start_point, end_point: games(game).end_point }
+  end
 end

@@ -15,8 +15,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   # NOT WORKING
   test "should get create session" do
-    user_login = User.last
-    post session_path(user_login.id), params: { session: { email: user_login.email, password: user_login.password_digest } }
+    new_session(:Alex)
     assert_response :success
     assert_redirected_to games_path
   end

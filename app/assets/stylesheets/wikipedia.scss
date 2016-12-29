@@ -344,7 +344,7 @@ body{
           background: #fff;
           margin: 1em 0;
           border: 1pt solid #aaa;
-          border-collapse: collapse
+
       }
 
       table.wikitable > tr > th,table.wikitable > tr > td,table.wikitable > * > tr > th,table.wikitable > * > tr > td,.mw_metadata th,.mw_metadata td {
@@ -415,6 +415,11 @@ body{
       mark {
           background-color: #ff0;
           color: #000
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
       }
 
       wbr {
@@ -640,7 +645,6 @@ body{
           margin: 1em 0;
           background-color: #f8f9fa;
           border: 1px solid #a2a9b1;
-          border-collapse: collapse;
           color: #000
       }
 
@@ -710,7 +714,6 @@ body{
       }
 
       .infobox {
-        display: block;
         border: 1px solid #a2a9b1;
         border-spacing: 3px;
         background-color: #f8f9fa;
@@ -2547,4 +2550,38 @@ body{
     margin-bottom: 0.5em;
   }
 
+  table.ambox-content {
+    border-left: 10px solid #f28500;
+  }
+
+table.ambox {
+    margin: 0 10%;
+    border: 1px solid #a2a9b1;
+    border-left: 10px solid #36c;
+    background: #fbfbfb;
+  }
+  .ambox td.mbox-image {
+      padding: 2px 0 2px 0.5em;
+  }
+  td.mbox-image {
+    border: none;
+    padding: 2px 0 2px 0.9em;
+    text-align: center;
+  }
+  td.mbox-text {
+    padding: 0.25em 0.5em;
+  }
+  .mw-collapsible {
+    width: 95%;
+    margin: 0.2em 0;
+  }
+  .compact-ambox table.ambox {
+    border: none;
+    border-collapse: collapse;
+    background: transparent;
+    margin: 0 0 0 1.6em !important;
+    padding: 0 !important;
+    width: auto;
+    display: block;
+  }
 }

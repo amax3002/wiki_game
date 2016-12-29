@@ -4,10 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-Role1:
-  name: admin
-# column: value
-#
-Role2:
-  name: client
+# one:
+#   user: Alex
+#   role: Role1
+# # column: value
+# #
+# two:
+#   user: Laurent
+#   role: Role1
 # column: value
