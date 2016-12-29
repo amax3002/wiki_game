@@ -1,8 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 Game1:
-  start_point: https://en.wikipedia.org/wiki/Ottoman_Empire
-  end_point: https://en.wikipedia.org/wiki/John_Bukovsky
+  start_point: /wiki/Ottoman_Empire
+  end_point: /wiki/John_Bukovsky
 
 Game2:
   start_point: MyString
