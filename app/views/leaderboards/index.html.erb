@@ -1,40 +1,26 @@
 
-<h1>
+<h1 class="text-center">
   Scoreboard: <small> <%= name_url_cleanup(@game.start_point) %>  -  <%= name_url_cleanup(@game.end_point) %> </small>
 </h1>
 
-<hr>
+<table id="game_index">
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Number of Moves</th>
+      <th>Win?</th>
+      <th>Date Played</th>
+    </tr>
+  </thead>
 
-<div class = "row">
-  <div class = "col-md-3">
-    User Name
-  </div>
-  <div class = "col-md-3">
-    Number of Moves
-  </div>
-  <div <div class="col-md-3">
-    Win?
-  </div>
-  <div <div class="col-md-3">
-    Date Played
-  </div>
-</div>
-
-<hr>
-<div class = "row">
-  <% Player.where(:game_id => @game.id).find_each do |x| %>
-    <div class = "col-md-3">
-      <%= User.find_by(id: x.user_id).full_name %>
-    </div>
-    <div <div class="col-md-3">
-      <%= Move.includes("users").where(:player_id => Player.where(:id => x.id, :game_id => @game.id)).count %>
-    </div>
-    <div <div class="col-md-3">
-      <%= (Game.find_by(id: x.game_id)).winner?(User.find_by(id: x.user_id)) %>
-    </div>
-    <div <div class="col-md-3">
-
-      <%= (Move.where(:player_id => Player.where(:user_id => x.user_id, :game_id => x.game_id)).order('created_at DESC').limit(1).find{|el| el[:created_at]}[:created_at]).to_formatted_s(:short)  %>
-    </div>
-  <% end %>
-</div>
+  <tbody>
+    <% Player.where(:game_id => @game.id).find_each do |x| %>
+      <tr>
+        <td><%= User.find_by(id: x.user_id).full_name %></td>
+        <td><%= Move.includes("users").where(:player_id => Player.where(:id => x.id, :game_id => @game.id)).count %></td>
+        <td><%= (Game.find_by(id: x.game_id)).winner?(User.find_by(id: x.user_id)) %></td>
+        <td><%= (Move.where(:player_id => Player.where(:user_id => x.user_id, :game_id => x.game_id)).order('created_at DESC').limit(1).find{|el| el[:created_at]}[:created_at]).to_formatted_s(:short)  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
