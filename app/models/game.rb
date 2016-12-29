@@ -3,7 +3,7 @@ class Game < ApplicationRecord
   has_many :moves, through: :players
 
   def winner?(current_user_input)
-    if (Move.where(:player_id => Player.where(:game_id => self.id, :user_id => current_user_input.id), :to_point => self.end_point).present?) == true
+    if (Move.where(:player_id => Player.where(:game_id => self.id, :user_id => current_user_input.id), :to_point => "https://en.wikipedia.org#{self.end_point}").present?) == true
       return "WON!"
     else
       return "You did not Finish....weak"
@@ -18,3 +18,6 @@ class Game < ApplicationRecord
     URI(self.end_point).path
   end
 end
+
+
+# Move.where(:player_id => Player.where(:game_id => a.id, :user_id => 1), :to_point => a.end_point).present?

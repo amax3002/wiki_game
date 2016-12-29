@@ -2,8 +2,12 @@
 
 Move1:
   player: Player1
-  to_point: https://en.wikipedia.org/wiki/John_Bukovsky
+  to_point: https://en.wikipedia.org/wiki/Ottoman_Empire
 
 Move2:
+  player: Player1
+  to_point: https://en.wikipedia.org/wiki/John_Bukovsky
+
+Move3:
   player: Player2
   to_point: https://en.wikipedia.org/wiki/John_Bukovsky

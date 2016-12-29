@@ -52,10 +52,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   #   assert_equal Game.last.start_point, "wiki/Ottoman_Empire"
   #   assert_equal Game.last.end_point, "wiki/John_Bukovsky"
   # end
-
-  test "show specific game information" do
-    get game_path(Game.last, Player.last)
-
-    assert_select "h1", "Client Details for Alex Guy"
-  end
+  # 
+  # test "show specific game information" do
+  #   get game_path(Game.last, Player.last)
+  #
+  #   assert_select "h1", "Client Details for Alex Guy"
+  # end
 end
