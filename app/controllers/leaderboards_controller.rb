@@ -4,6 +4,6 @@ class LeaderboardsController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.find_by id: params[:game_id]
   end
 end

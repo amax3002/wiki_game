@@ -3,7 +3,8 @@
   Scoreboard: <small> <%= name_url_cleanup(@game.start_point) %>  -  <%= name_url_cleanup(@game.end_point) %> </small>
 </h1>
 
-<table id="game_index">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/><div class="container">
+<table id="game_index" class="table table-striped table-bordered" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>User Name</th>
@@ -24,3 +25,7 @@
     <% end %>
   </tbody>
 </table>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>

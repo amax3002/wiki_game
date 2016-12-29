@@ -25,3 +25,7 @@ $(function() {
     return false;
   });
 });
+
+$(document).ready(function() {
+    $('#game_index').DataTable();
+} );
