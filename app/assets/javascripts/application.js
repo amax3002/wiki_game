@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap-sprockets
+
+$(function() {
+  $("#games_js th a, #games_js .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+  $("#games_search input").keyup(function() {
+    $.get($("#games_search").attr("action"), $("#games_search").serialize(), null, "script");
+    return false;
+  });
+});

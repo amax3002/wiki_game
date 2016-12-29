@@ -17,6 +17,14 @@ class Game < ApplicationRecord
   def create_end_wiki_path
     URI(self.end_point).path
   end
+
+  def self.search(search)
+    if search
+      where("LOWER(start_point) LIKE LOWER(?) OR LOWER(end_point) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
 end
 
 
