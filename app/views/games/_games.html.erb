@@ -16,8 +16,8 @@
   <tbody>
     <% for game in @games %>
       <tr>
-        <td><%= name_url_cleanup(game.start_point) %></td>
-        <td><%= name_url_cleanup(game.end_point) %></td>
+        <td><%= URI.decode(name_url_cleanup(game.start_point)) %></td>
+        <td><%= URI.decode(name_url_cleanup(game.end_point)) %></td>
         <td><%= link_to 'Play', game, class: "btn btn-info" %></td>
         <% if current_user && current_user.admin? %>
           <td><%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %></td>
