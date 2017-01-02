@@ -14,6 +14,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "show specific user information" do
     new_session(:Alex)
+    follow_redirect!
     get user_path(users(:Alex))
 
     assert_select "h1", "Client Details for Alex Guy"
@@ -21,8 +22,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "delete specific user information" do
     new_session(:Laurent)
-    user_to_be_deleted = User.last
+    user_to_be_deleted = users(:Laurent)
     delete user_path(user_to_be_deleted)
+    follow_redirect!
 
     assert_redirected_to root_url
     assert_raise ActiveRecord::RecordNotFound do

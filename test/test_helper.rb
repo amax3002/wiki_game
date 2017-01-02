@@ -9,10 +9,10 @@ class ActiveSupport::TestCase
   fixtures :all
 
   def new_session(user)
-   post session_path, params: { username: users(user).email, password: "password" }
+   post session_path, params: { email: users(user).email, password: "password" }
   end
 
   def new_game(game)
-   post games_path, params: { start_point: games(game).start_point, end_point: games(game).end_point }
+   get game_path(games(game).id), params: { start_point: games(game).start_point, end_point: games(game).end_point }
   end
 end

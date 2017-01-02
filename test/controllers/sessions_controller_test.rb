@@ -13,11 +13,10 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   end
 
-  # NOT WORKING
   test "should get create session" do
     new_session(:Alex)
-    assert_response :success
-    assert_redirected_to games_path
+    follow_redirect!
+    assert_select "title", "Wikipedia Game"
   end
 
 end
