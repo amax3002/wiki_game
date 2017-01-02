@@ -16,7 +16,16 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test "should get create session" do
     new_session(:Alex)
     follow_redirect!
-    assert_select "title", "Wikipedia Game"
+    assert_select "h1", "Choose Game"
+  end
+
+  test "should destroy session" do
+    new_session(:Alex)
+    follow_redirect!
+
+    delete session_path
+    follow_redirect!
+    assert_select "small", "Indulge desire for knowledge with vanquishing your enemies"
   end
 
 end

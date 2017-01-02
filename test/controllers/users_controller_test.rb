@@ -16,17 +16,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     new_session(:Alex)
     follow_redirect!
     get user_path(users(:Alex))
-
-    assert_select "h1", "Client Details for Alex Guy"
+    assert_select "h1", "Alexandre Guy's Game Record"
   end
 
   test "delete specific user information" do
     new_session(:Laurent)
+    follow_redirect!
     user_to_be_deleted = users(:Laurent)
     delete user_path(user_to_be_deleted)
     follow_redirect!
-
-    assert_redirected_to root_url
+    
     assert_raise ActiveRecord::RecordNotFound do
       User.find(user_to_be_deleted.id)
     end

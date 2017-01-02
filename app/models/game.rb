@@ -33,6 +33,3 @@ class Game < ApplicationRecord
     self.players.delete_all
   end
 end
-
-
-# Move.where(:player_id => Player.where(:game_id => a.id, :user_id => 1), :to_point => a.end_point).present?

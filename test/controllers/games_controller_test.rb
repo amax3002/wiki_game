@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
+  include GamesHelper
+
+  def current_game
+    Game.find_by(id: session[:game_id])
+  end
+
   test "should get new" do
     get new_game_path
     assert_response :success
@@ -44,6 +50,8 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   # test "can create Game" do
+  #   new_session(:Alex)
+  #   follow_redirect!
   #   game_start = games(:Game1).start_point
   #   game_end = games(:Game1).end_point
   #   post games_path, params: { game: { start_point: game_start, end_point: game_end } }
@@ -51,11 +59,39 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   #   assert_response :redirect
   #   assert_equal Game.last.start_point, "wiki/Ottoman_Empire"
   #   assert_equal Game.last.end_point, "wiki/John_Bukovsky"
+  #   assert_select "h1", "Play!"
   # end
-  # 
-  # test "show specific game information" do
-  #   get game_path(Game.last, Player.last)
   #
-  #   assert_select "h1", "Client Details for Alex Guy"
+  # test "Play specific game (show)" do
+  #   new_session(:Alex)
+  #   follow_redirect!
+  #   game = games(:Game1)
+  #   get game_path(game, users(:Alex))
+  #   follow_redirect!
+  #
+  #   binding.pry
+  #
+  #   assert_select "h1", "Play!"
   # end
+
+  test "test current game start/end name helper method" do
+    new_session(:Alex)
+    follow_redirect!
+    new_game(:Game1)
+      start_name_input = current_game_start_name
+      end_name_input = current_game_end_name
+      assert_equal "Ottoman Empire", start_name_input
+      assert_equal "John Bukovsky", end_name_input
+  end
+
+  test "test game self search method" do
+    new_session(:Alex)
+    follow_redirect!
+    new_game(:Game1)
+      start_name_input = current_game_start_name
+      end_name_input = current_game_end_name
+      assert_equal "Ottoman Empire", start_name_input
+      assert_equal "John Bukovsky", end_name_input
+  end
+
 end
