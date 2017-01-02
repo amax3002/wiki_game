@@ -7,12 +7,13 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    text-align: center;
 }
 
 #game_index td, #game_index th{
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #game_index tr:nth-child(even){background-color: #f2f2f2;}
@@ -25,6 +26,11 @@
     text-align: center;
     background-color: #4CAF50;
     color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+#game_index .button_spacing {
+  margin-right: 5px;
 }
 
 th {
@@ -35,12 +41,4 @@ th .current {
   background-repeat: no-repeat;
   background-position: right center;
 
-}
-
-th .current.asc {
-  background-image: image-url("up_arrow.gif");
-}
-
-th .current.desc {
-  background-image: image-url("down_arrow.gif");
 }

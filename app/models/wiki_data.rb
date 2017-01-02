@@ -4,7 +4,10 @@ class WikiData
     counter = 0
     flag = false
     until flag
-      article = URI(HTTParty.get("https://en.wikipedia.org/wiki/Special:Random").request.uri).path
+      redirect = HTTParty.get("https://en.wikipedia.org/wiki/Special:Random", follow_redirects: false)
+      location_path = redirect.headers["location"]
+      article = URI(location_path).path
+
       flag = word_count(article) > 5_000
       counter += 1
       puts "#{counter}: #{word_count(article)}"

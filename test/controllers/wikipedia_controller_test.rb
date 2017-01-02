@@ -1,29 +1,39 @@
 require 'test_helper'
 
 class WikipediaControllerTest < ActionDispatch::IntegrationTest
-  # def setup
-  #   stub_request(
-  #      :get,
-  #      "https://en.wikipedia.org/wiki/Symphony_X"
-  #    ).to_return(
-  #      :status => 200,
-  #      :body => File.read("test/helpers/response.txt"),
-  #      :headers => { 'Content-Type' => 'application/json' }
-  #    )
-  # end
+  def setup
+    stub_request(
+      :get,
+      "https://en.wikipedia.org/wiki/Symphony_X"
+    ).to_return(
+      status: 200,
+      body: File.read("test/fixtures/wikiepedia_responses/symphony_x.html"),
+      headers: { "Content-Type" => "text/html" }
+    )
+    stub_request(
+      :get,
+      "https://en.wikipedia.org/wiki/Ottoman_Empire"
+    ).to_return(
+      status: 200,
+      body: File.read("test/fixtures/wikiepedia_responses/ottoman_empire.html"),
+      headers: { "Content-Type" => "text/html" }
+    )
 
-  # test "should decalre winner" do
-  #   new_session(:Alex)
-  #   follow_redirect!
-  #
-  #   a = WebMock.stub_request(:get, 'https://en.wikipedia.org/wiki/Symphony_X')
-  #     .to_return(
-  #        :status => 200,
-  #        :body => File.read("test/helpers/response.txt"),
-  #        :headers => { 'Content-Type' => 'application/json' }
-  #      )
-  #
-  #   assert_equal 5000, WikiData.new.word_count("/wiki/Symphony_X")
-  # end
+    stub_request(
+      :get,
+      "https://en.wikipedia.org/wiki/Special:Random"
+    ).to_return(
+      {
+        status: 302,
+        body: "",
+        headers: { "Location" => "https://en.wikipedia.org/wiki/Ottoman_Empire" }
+      },
+      status: 302,
+      body: "",
+      headers: { "Location" => "https://en.wikipedia.org/wiki/Symphony_X" }
+    )
+  end
+
+
 
 end

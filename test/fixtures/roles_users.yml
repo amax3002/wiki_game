@@ -5,11 +5,10 @@
 # below each fixture, per the syntax in the comments below
 #
 # one:
-#   user: Alex
-#   role: Role1
+#   user_id: users(:Alex).id
+#   role_id: roles(:admin).id
 # # column: value
 # #
 # two:
-#   user: Laurent
-#   role: Role1
-# column: valuet
+#   user_id: users(:Laurent).id
+#   role_id: roles(:admin).id

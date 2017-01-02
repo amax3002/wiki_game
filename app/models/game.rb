@@ -19,14 +19,6 @@ class Game < ApplicationRecord
     URI(self.end_point).path
   end
 
-  def self.search(search)
-    if search
-      where("LOWER(start_point) LIKE LOWER(?) OR LOWER(end_point) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
-    else
-      all
-    end
-  end
-
   private
 
   def destroy_players_moves
