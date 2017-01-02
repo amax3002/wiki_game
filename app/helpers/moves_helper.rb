@@ -5,8 +5,8 @@ module MovesHelper
   end
 
   def gametimer(game_being_timed)
-    first_move = Move.where(:player_id => Player.where(:user_id => current_user.id, :game_id => game_being_timed.id)).first
-    last_move = Move.where(:player_id => Player.where(:user_id => current_user.id, :game_id => game_being_timed.id)).last
+    first_move = Move.where(:player_id => current_player.id).first
+    last_move = Move.where(:player_id => current_player.id).last
 
     seconds_diff = (first_move.created_at - last_move.created_at).to_i.abs
 
@@ -21,9 +21,9 @@ module MovesHelper
     "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
   end
 
-  def gametimer_leaderboard(game_being_timed, user_input)
-    first_move = Move.where(:player_id => Player.where(:user_id => user_input.id, :game_id => game_being_timed.id)).first
-    last_move = Move.where(:player_id => Player.where(:user_id => user_input.id, :game_id => game_being_timed.id)).last
+  def gametimer_leaderboard(player)
+    first_move = player.moves.first
+    last_move = player.moves.last
 
     seconds_diff = (first_move.created_at - last_move.created_at).to_i.abs
 

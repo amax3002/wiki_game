@@ -5,8 +5,6 @@
 
 <hr>
 
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
 <div class="container">
   <div class="table-responsive">
@@ -22,13 +20,13 @@
       </thead>
 
       <tbody>
-        <% Player.where(:user_id => current_user.id).each do |x| %>
+        <% Player.where(:user_id => current_user.id).each do |player| %>
         <tr>
-          <td><%= name_url_cleanup(Game.find_by(id: x.game_id).start_point)%></td>
-          <td><%= name_url_cleanup(Game.find_by(id: x.game_id).end_point) %></td>
-          <td class="col-md-2"><%= Move.includes("users").where(:player_id => Player.where(:user_id => current_user.id, :game_id => x.game_id)).count %></td>
-          <td><%= Game.find_by(id: x.game_id).winner?(current_user) %></td>
-          <td class="col-md-2"><%= gametimer_leaderboard(Game.find_by(id: x.game_id), User.find_by(id: x.user_id)) %></td>
+          <td><%= name_url_cleanup(player.game.start_point)%></td>
+          <td><%= name_url_cleanup(player.game.end_point) %></td>
+          <td class="col-md-2"><%= player.moves.count %></td>
+          <td><%= Game.find_by(id: player.game_id).winner?(player) %></td>
+          <td class="col-md-2"><%= gametimer_leaderboard(player) %></td>
         </tr>
         <% end %>
       </tbody>
