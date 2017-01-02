@@ -47,13 +47,13 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
   test "should decalre winner" do
     get games_path
-    b = games(:Game1).winner?(users(:Alex))
+    b = games(:Game1).winner?(players(:Player1))
     assert_equal "WON!", b
   end
 
   test "should decalre loser" do
     get games_path
-    b = games(:Game1).winner?(users(:Laurent))
+    b = games(:Game1).winner?(players(:Player2))
     assert_equal "You did not Finish....weak", b
   end
 

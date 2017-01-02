@@ -26,6 +26,6 @@ $(function() {
   });
 });
 
-$(document).ready(function() {
-    $('#game_index').DataTable();
-} );
+// $(document).ready(function() {
+//     $('#game_index').DataTable();
+// } );

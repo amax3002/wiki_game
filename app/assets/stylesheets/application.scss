@@ -6,6 +6,29 @@
 
 /*-------Application nav bar formating-------*/
 
+.text_hover_img {
+  display: none;
+}
+.text_hover_img:hover {
+  display: inline;
+}
+
+.info_hover img {
+  width: 15px;
+  height: 15px;
+  -webkit-transition: all .1s ease;
+  -moz-transition: all .1s ease;
+}
+
+.info_hover img:hover {
+  width: 20px;
+  height: 20px;
+}
+.info_hover img:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;
+}
 
 .navbar-nav > li > a {
     padding-top: 15px;
@@ -13,6 +36,10 @@
 }
 .nav, .navbar-header {
     text-transform: uppercase;
+}
+.navbar-nav > li > a:hover {
+    padding-top: 20px;
+    padding-bottom: 15px;
 }
 .navbar-header {
     float: left;
