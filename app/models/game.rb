@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :players, dependent: :destroy
+  has_many :challenges, dependent: :destroy
   has_many :moves, through: :players
   before_destroy :destroy_players_moves
 
