@@ -1,4 +1,4 @@
-class ChallengeMailer < ApplicationMailer::Base
+class ChallengeMailer < ApplicationMailer
 
   def send_challenge(challenge)
     @challenge = challenge

@@ -6,7 +6,7 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.create(challenge_params)
-    session["message"] = "You have sent a challenge"
+    flash[:success] = "You successfully sent a Challenge!"
     ChallengeMailer.send_challenge(@challenge).deliver_now
     if @challenge.save
       # send mailer action here

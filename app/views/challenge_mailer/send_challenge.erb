@@ -1,9 +1,9 @@
-Your Order is Confirmed!
+You have been Challenge to a Wikipedia game!
 ===============================================
 
-You have successfully placed your order for:
-<% @order.grouped_line_items.each do |product, line_items| %>
-    <%= line_items.size %> <%= product.name %>: <%= number_to_currency line_items.sum {|line_item| line_item.total_sale_price_in_cents.to_i / 100.0 }%>
-<% end %>
+Your "friend" <%= User.find_by(id: @challenge.challenger_id).full_name %> has sent this request for a battle of clicks!
 
-As Always, "Your friendship tastes delicous!"
+You will see who can go from <%=URI.decode(@challenge.game.start_point) %> to <%=URI.decode(@challenge.game.end_point) %> in the fewest clicks and/or the quickest amount of time.
+
+If you dare, click the link and see who is the Wiki Master!!!
+  Link =>
