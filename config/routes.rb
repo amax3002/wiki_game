@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :moves
   resources :games do
     resources :leaderboards, :only => [:index, :show]
+    resources :challenges
   end
-  resources :challenges
-  get "/wikipedia/*path", to: "wikipedia#show"
+  get "/wikipedia/*path", to: "wikipedia#show", :constraints => { :path => /.+/ }
   root "welcome#index"
 end

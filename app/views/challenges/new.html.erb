@@ -1,2 +1,5 @@
-<h1>Challenges#new</h1>
-<p>Find me in app/views/challenges/new.html.erb</p>
+<h1>New Challenge</h1>
+
+<%= render 'form', challenge: @challenge %>
+
+<%= link_to 'Back', games_path %>

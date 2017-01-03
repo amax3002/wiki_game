@@ -26,6 +26,7 @@
               <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             <% end %>
               <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %>
+              <%= link_to 'Challenge a Friend',  new_game_challenge_path(game), class: "btn btn-warning" %>
             </td>
           </tr>
         <% end %>

@@ -12,5 +12,6 @@ class Ability
     can :create, Game
     can :create, Move
     can :create, Player
+    can :manage, Challenge
   end
 end

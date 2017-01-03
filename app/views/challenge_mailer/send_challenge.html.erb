@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>You have been Challenge to a Wikipedia game!</h1>
+    <p>
+      Your "friend" 
+      <% @order.grouped_line_items.each do |product, line_items| %>
+        <li>
+          <%= line_items.size %> <%= product.name %>: <%= number_to_currency line_items.sum {|line_item| line_item.total_sale_price_in_cents.to_i / 100.0 }%>
+        </li>
+      <% end %>
+      <br>
+    </p>
+    <p>As Always, "Your friendship tastes delicous!"</p>
+  </body>
+</html>
