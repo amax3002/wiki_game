@@ -2,6 +2,7 @@
 
 <h1 class="text-center">Choose Game</h1>
 
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
 <div class="container">
   <div class="table-responsive">
@@ -23,10 +24,8 @@
             <% if current_user && current_user.admin? %>
               <%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %>
               <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-              <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %>
-            <% else %>
-              <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-warning" %>
             <% end %>
+              <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %>
             </td>
           </tr>
         <% end %>

@@ -28,7 +28,7 @@ class WikiData
     parsed_data.search('.mw-editsection', '.reflist.references-column-width', '#References', '#External_links', '.external.text', '.navbox').remove
     parsed_data.css('a').each do |link|
       unless link["href"].nil? || link["href"].include?("#")
-        link["href"] = "/wikipedia#{link["href"]}"
+        link["href"] = "/wikipedia#{URI.encode(link["href"])}"
       end
     end
     parsed_data

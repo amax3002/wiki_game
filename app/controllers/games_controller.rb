@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-  helper_method :sort_column, :sort_direction
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -58,6 +57,10 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: 'Game was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def challenge
+    redirect_to "/wikipedia#{wiki_path}"
   end
 
   private

@@ -22,8 +22,8 @@
       <tbody>
         <% Player.where(:user_id => current_user.id).each do |player| %>
         <tr>
-          <td><%= name_url_cleanup(player.game.start_point)%></td>
-          <td><%= name_url_cleanup(player.game.end_point) %></td>
+          <td><%= URI.decode(name_url_cleanup(player.game.start_point))%></td>
+          <td><%= URI.decode(name_url_cleanup(player.game.end_point)) %></td>
           <td class="col-md-2"><%= player.moves.count %></td>
           <td><%= Game.find_by(id: player.game_id).winner?(player) %></td>
           <td class="col-md-2"><%= gametimer_leaderboard(player) %></td>
