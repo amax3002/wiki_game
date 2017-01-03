@@ -5,9 +5,9 @@ class ChallengesController < ApplicationController
   end
 
   def create
-    binding.pry
     @challenge = Challenge.create(challenge_params)
     session["message"] = "You have sent a challenge"
+    ChallengeMailer.send_challenge(@challenge).deliver_now
     if @challenge.save
       # send mailer action here
       redirect_to games_path
