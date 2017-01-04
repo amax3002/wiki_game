@@ -14,10 +14,12 @@ ActiveRecord::Schema.define(version: 20170103163651) do
 
   create_table "challenges", force: :cascade do |t|
     t.integer  "game_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "challenger_id"
     t.integer  "recipient_id"
+    t.string   "recipient_email"
+    t.string   "recipient_name"
   end
 
   create_table "games", force: :cascade do |t|

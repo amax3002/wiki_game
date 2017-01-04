@@ -3,6 +3,16 @@
 <%= form_for challenge, url: game_challenges_path(@game) do |f| %>
 
   <div class="form-group">
+  <%= f.label :recipient_name %>
+  <%= f.text_field :recipient_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :recipient_email %>
+  <%= f.text_field :recipient_email, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
   <%= f.hidden_field :challenger_id, :value => current_user.id, :class => "form-control"%>
   </div>
   <div class="form-group">
