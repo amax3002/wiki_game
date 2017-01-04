@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170103163651) do
+ActiveRecord::Schema.define(version: 20170104200126) do
 
   create_table "challenges", force: :cascade do |t|
     t.integer  "game_id"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170103163651) do
     t.string   "to_point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "from_point"
+    t.boolean  "cheater"
   end
 
   create_table "players", force: :cascade do |t|

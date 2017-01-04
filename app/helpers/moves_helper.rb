@@ -1,5 +1,13 @@
 module MovesHelper
 
+  def render_cheater
+    if Move.where(:player_id => current_player.id, :cheater => false).count > 0
+      true
+    else
+      false
+    end
+  end
+
   def game_move_count
     Move.where(:player_id => current_player.id).count
   end

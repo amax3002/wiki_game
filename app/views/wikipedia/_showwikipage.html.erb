@@ -1,8 +1,11 @@
 <% if @won == true %>
-<hr>
-<%= render 'americanflag'%>
+  <hr>
+  <%= render 'americanflag'%>
+<% elsif render_cheater == true %>
+  <hr>
+  <%= render 'cheating'%>
 <% else %>
-<div class="wikipedia">
+  <div class="wikipedia">
     <%= @page_to_render.to_s.html_safe %>
-</div>
+  </div>
 <% end %>

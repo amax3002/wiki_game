@@ -6,9 +6,11 @@ class Game < ApplicationRecord
 
   def winner?(player)
     if Move.where(player: player, :to_point => "https://en.wikipedia.org#{self.end_point}").present? == true
-      return "WON!"
+      "WON!"
+    elsif Move.where(player: player, cheater: false).count > 0
+      "Filthy Cheater"
     else
-      return "You did not Finish....weak"
+      "You did not Finish....weak"
     end
   end
 

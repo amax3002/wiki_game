@@ -1,18 +1,20 @@
 <h1>
   <% if @won == true %>
-  YOU WON!!!!
+    YOU WON!!!!
+  <% elsif render_cheater == true%>
+    YOU CHEATED!!!!
   <% else %>
-  <%= game_move_count_funny_message %>
+    <%= game_move_count_funny_message %>
   <% end %>
 </h1>
 
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h3>Starting Point:  <%= URI.decode(current_game_start_name) %>
+      <h3>Starting Point:  <%= current_game_start_name %>
         <%= render 'imageinfo', url_location: current_game.start_point %>
         <br>
-        <span class="end_display"> Ending Point: <%= URI.decode(current_game_end_name) %>
+        <span class="end_display"> Ending Point: <%= current_game_end_name %>
           <%= render 'imageinfo', url_location: current_game.end_point %>
         </span>
       </h3>

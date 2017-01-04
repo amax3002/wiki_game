@@ -2090,7 +2090,7 @@
         <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">    link_path = &quot;https://en.wikipedia.org/#{params[&#39;path&#39;]}&quot;</code>
+          <code class="ruby">    @link_path = &quot;https://en.wikipedia.org/#{params[&#39;path&#39;]}&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -2102,7 +2102,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">    @page_to_render = wiki_parser.http_party_setup(link_path)</code>
+          <code class="ruby">    @page_to_render = wiki_parser.http_party_setup(@link_path)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
@@ -2114,7 +2114,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">    Move.create(player_id: current_player.id, to_point: link_path)</code>
+          <code class="ruby">    Move.create(player_id: current_player.id, to_point: @link_path)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
