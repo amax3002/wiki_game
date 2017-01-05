@@ -54,9 +54,9 @@ class WikiData
       h4.remove if h4.content.blank?
       h4.remove if h4.content.strip.empty?
     end
-    input.css('dl').find_all.each do |dl|
-      dl.remove
-    end
+    # input.css('dl').find_all.each do |dl|
+    #   dl.remove
+    # end
     input.css('a').find_all.each do |a|
       a.remove if a["href"] == '/wiki/Wikipedia:Link_rot'
       a.remove if a["href"] == '/wiki/Help:Attached_KML'
@@ -88,7 +88,7 @@ class WikiData
   end
 
   def http_party_setup(link_input)
-    parse_wiki_page(HTTParty.get(link_input).html_safe)
+    parse_wiki_page(HTTParty.get(URI.encode(link_input)).html_safe)
   end
 
   def params_path_formatter(url_path)

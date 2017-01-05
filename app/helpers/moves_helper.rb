@@ -83,5 +83,4 @@ module MovesHelper
 
     "#{hours.to_s.rjust(2, '0')}:#{minutes.to_s.rjust(2, '0')}:#{seconds.to_s.rjust(2, '0')}"
   end
-
 end
