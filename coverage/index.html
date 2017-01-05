@@ -2126,7 +2126,7 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">    if wiki_parser.name_url_path_end_point_match(params[&quot;path&quot;]) == wiki_parser.name_url_path_end_point_match(current_game.create_end_wiki_path)</code>
+          <code class="ruby">    if wiki_parser.params_path_formatter(params[&quot;path&quot;]) == wiki_parser.params_path_formatter(current_game.create_end_wiki_path)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="11">
@@ -3674,7 +3674,7 @@
         <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
-          <code class="ruby">  def name_url_path_end_point_match(url_path)</code>
+          <code class="ruby">  def params_path_formatter(url_path)</code>
         </li>
       
         <li class="covered" data-hits="3" data-linenumber="42">

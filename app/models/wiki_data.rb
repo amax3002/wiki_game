@@ -1,4 +1,10 @@
 class WikiData
+  TAGS_TO_REMOVE = ['.mw-editsection', '.reflist.references-column-width',
+  '#References', '#Further_reading', '#External_links', '.external.text',
+   '.navbox', '.reflist', '#Notes', '.refbegin', '#Footnotes',
+   '.references', '.refbegin.columns.references-column-width',
+   ".reflist.columns.references-column-count.references-column-count-2",
+   ".noprint.Inline-Template"]
 
   def article_size_generate
     counter = 0
@@ -30,19 +36,33 @@ class WikiData
     end
   end
 
-def remove_blank_li(input)
-  input.css('li').find_all.each do |li|
-    li.remove if li.content.blank?
-    li.remove if li.content.strip.empty?
+  def remove_blank_li_and_dl(input)
+    input.css('li').find_all.each do |li|
+      li.remove if li.content.blank?
+      li.remove if li.content.strip.empty?
+    end
+    input.css('dl').find_all.each do |dl|
+      dl.remove
+    end
+    # I don't think i need this anymore becuase I remove the
+    # <sup class =noprint Inline-Template> tag above that holds the dead link tag
+    input.css('a').find_all.each do |a|
+      a.remove if a["href"] == '/wiki/Wikipedia:Link_rot'
+    end
   end
-end
+
+  # def useable_tag_removal_array(array)
+  #   binding.pry
+  #   array.map(&:inspect).join(', ')
+  # end
+
+
 
   def parse_wiki_page(html_input)
+
     parsed_data = Nokogiri::HTML.parse(html_input).search('#content')
-    parsed_data.search('.mw-editsection', '.reflist.references-column-width',
-    '#References', '#Further_reading', '#External_links', '.external.text',
-     '.navbox', '.reflist', '#Notes', '.refbegin', '#Footnotes').remove
-    remove_blank_li(parsed_data)
+    parsed_data.search(*TAGS_TO_REMOVE).remove
+    remove_blank_li_and_dl(parsed_data)
     parsed_data.css('a').each do |link|
       unless link["href"].nil? || link["href"].include?("#")
         link["href"] = "/wikipedia#{URI.encode(link["href"])}"
@@ -55,7 +75,7 @@ end
     parse_wiki_page(HTTParty.get(link_input).html_safe)
   end
 
-  def name_url_path_end_point_match(url_path)
+  def params_path_formatter(url_path)
     url_path.split('/')[-1]
   end
 
@@ -70,17 +90,10 @@ end
     end
   end
 
-  def get_links(url)
+  def links_to_check_cheating(url)
     cheat_link_array = []
     parsed_data = Nokogiri::HTML.parse(HTTParty.get(url).html_safe).search('#content')
-    parsed_data.search('.mw-editsection', '.reflist.references-column-width',
-    '#References', '#Further_reading', '#External_links', '.external.text',
-     '.navbox', '.reflist', '#Notes', '.refbegin',
-     '.refbegin.columns.references-column-width',
-     ".reflist.columns.references-column-count.references-column-count-2").remove
-
-    #  Don't need these two classes for the wiki data type removal anymore
-    #  '.reflist.columns.references-column-count.references-column-count-2',, '.reflist.references-column-width'
+    parsed_data.search(*TAGS_TO_REMOVE).remove
 
     parsed_data.css("a").map do |link|
       unless link["href"].nil? || link["href"].include?("#")
@@ -95,7 +108,7 @@ end
       true
     elsif previous_link == "Are you trying to cheat??"
       false
-    elsif get_links(previous_link).include?("/#{params_path}") == true
+    elsif links_to_check_cheating(previous_link).include?("/#{params_path}") == true
       true
     else
       false

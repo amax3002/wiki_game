@@ -11,7 +11,7 @@ class WikipediaController < ApplicationController
 
     Move.create(player_id: current_player.id, to_point: @link_path, from_point: @from_path, cheater: @not_cheating)
 
-    if @wiki_parser.name_url_path_end_point_match(params["path"]) == @wiki_parser.name_url_path_end_point_match(current_game.create_end_wiki_path)
+    if @wiki_parser.params_path_formatter(params["path"]) == @wiki_parser.params_path_formatter(current_game.create_end_wiki_path)
       @won = true
       @won
     end
