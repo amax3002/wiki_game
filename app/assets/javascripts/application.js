@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap-sprockets
+//= require vis
 
 $(function() {
   $("#games_js th a, #games_js .pagination a").on("click", function() {

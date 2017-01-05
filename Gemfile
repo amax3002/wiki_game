@@ -38,6 +38,7 @@ gem 'httparty'
 gem 'stripe'
 gem 'momentjs-rails'
 gem 'nokogiri'
+gem 'visjs-rails'
 
 
 # Use Capistrano for deployment
