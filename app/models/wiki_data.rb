@@ -2,9 +2,10 @@ class WikiData
   TAGS_TO_REMOVE = ['.mw-editsection', '.reflist.references-column-width',
   '#References', '#Further_reading', '#External_links', '.external.text',
    '.navbox', '.reflist', '#Notes', '.refbegin', '#Footnotes',
-   '.references', '.refbegin.columns.references-column-width',
+   '.references', '.reference', '.refbegin.columns.references-column-width',
    ".reflist.columns.references-column-count.references-column-count-2",
-   ".noprint.Inline-Template"]
+   ".noprint.Inline-Template", ".metadata", '#Bibliography', '.citation.book',
+   '.mw-indicators', '.citation.web']
 
   def article_size_generate
     counter = 0
@@ -41,13 +42,28 @@ class WikiData
       li.remove if li.content.blank?
       li.remove if li.content.strip.empty?
     end
+    input.css('h2').find_all.each do |h2|
+      h2.remove if h2.content.blank?
+      h2.remove if h2.content.strip.empty?
+    end
+    input.css('h3').find_all.each do |h3|
+      h3.remove if h3.content.blank?
+      h3.remove if h3.content.strip.empty?
+    end
+    input.css('h4').find_all.each do |h4|
+      h4.remove if h4.content.blank?
+      h4.remove if h4.content.strip.empty?
+    end
     input.css('dl').find_all.each do |dl|
       dl.remove
     end
-    # I don't think i need this anymore becuase I remove the
-    # <sup class =noprint Inline-Template> tag above that holds the dead link tag
     input.css('a').find_all.each do |a|
       a.remove if a["href"] == '/wiki/Wikipedia:Link_rot'
+      a.remove if a["href"] == '/wiki/Help:Attached_KML'
+      a.remove if a["role"] == 'navigation'
+    end
+    input.css('div').find_all.each do |div|
+      div.remove if div["role"] == 'navigation'
     end
   end
 
