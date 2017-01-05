@@ -15,6 +15,14 @@
 <div id="mynetwork"></div>
 
 <script type="text/javascript">
+  $.ajax("/38/moves.json", {
+    success: function(data) {
+      console.log('nodes are', data.nodes);
+      console.log('nodes are', data.edges);
+
+    }
+  })
+
     // create an array with nodes
     var nodes = new vis.DataSet([
         {id: 1, label: 'Node 1'},

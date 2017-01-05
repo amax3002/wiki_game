@@ -9,7 +9,7 @@ class WikipediaController < ApplicationController
 
     @not_cheating = @wiki_parser.cheating_test(@from_path,params['path'])
 
-    Move.create(player_id: current_player.id, to_point: @link_path, from_point: @from_path, cheater: @not_cheating)
+    Move.find_or_create_by(player_id: current_player.id, to_point: @link_path, from_point: @from_path, cheater: @not_cheating)
 
     if @wiki_parser.params_path_formatter(params["path"]) == @wiki_parser.params_path_formatter(current_game.create_end_wiki_path)
       @won = true

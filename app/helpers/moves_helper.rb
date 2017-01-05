@@ -1,5 +1,9 @@
 module MovesHelper
 
+  def move_name_url_cleanup(url_path)
+    URI.decode(url_path.split('/')[-1].tr('_', ' ').to_s.gsub(" %26","\'s"))
+  end
+
   def render_cheater
     if Move.where(:player_id => current_player.id, :cheater => false).count > 0
       true
