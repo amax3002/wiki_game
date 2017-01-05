@@ -17,11 +17,15 @@
 
   <tbody>
     <% Player.where(:game_id => @game.id).find_each do |player| %>
-      <tr>
+      <tr data-link="<%= player_moves_path(player) %>">
         <td><%= player.user.full_name %></td>
         <td><%= player.moves.count %></td>
         <td><%= @game.winner?(player) %></td>
-        <td><%= gametimer_leaderboard(player) %></td>
+        <% if player.moves.first && player.moves.last %>
+          <td><%= gametimer_leaderboard(player) %></td>
+        <% else %>
+          <td>No moves made</td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

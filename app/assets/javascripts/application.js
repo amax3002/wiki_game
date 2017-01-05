@@ -29,3 +29,12 @@ $(function() {
 $(document).ready(function() {
     $('#game_index').DataTable();
 } );
+
+
+jQuery(function($) {
+
+    $("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+
+});
