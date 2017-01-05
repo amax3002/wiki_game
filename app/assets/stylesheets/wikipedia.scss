@@ -24,14 +24,14 @@ body{
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
      background-color: #98AFC7;
-     -webkit-animation: random 20s infinite;
-     animation: random 20s infinite;
+     -webkit-animation: random 200s infinite;
+     animation: random 200s infinite;
 }
 @keyframes  random {
-    15% { background-color: red; }
-    30% { background-color: yellow; }
-    45% { background-color: green; }
-    60% { background-color: blue; }
+    15% { background-color: #E77471; }
+    30% { background-color: #FFF8C6; }
+    45% { background-color: #3EA055; }
+    60% { background-color: #A0CFEC; }
     75% { background-color: #98AFC7; }
 }
 
