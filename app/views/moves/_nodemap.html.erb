@@ -8,11 +8,12 @@
               width: 900px;
               height: 600px;
               border: 2px solid lightgray;
+
           }
       </style>
   </head>
   <body>
-    <h2>Map of Moves</h2>
+    <h2 class="text-center">Map of Moves</h2>
     <div id="mynetwork"></div>
 
     <script type="text/javascript">
@@ -36,10 +37,35 @@
           var options = {
             interaction: { hover:true },
             nodes: {
-              font: { size: 14 }
+              font: { size: 14 },
+              shadow:{
+                enabled: true,
+                color: 'rgba(0,0,0,0.5)',
+                size:10,
+                x:5,
+                y:5
+              }
             },
-            edges: {color: "#109618" },
-            labels: {'Start of Game': {color: '#FF9900' }}
+            edges: {
+              color: "#109618",
+              arrows: {
+                to:     {enabled: true, scaleFactor:1, type:'arrow'},
+                middle: {enabled: false, scaleFactor:1, type:'arrow'},
+                from:   {enabled: false, scaleFactor:1, type:'arrow'}
+              },
+              arrowStrikethrough: true,
+              shadow:{
+                enabled: true,
+                color: 'rgba(0,0,0,0.5)',
+                size:10,
+                x:5,
+                y:5
+              }
+            },
+            labels: {'Start of Game': {color: '#FF9900' }},
+            layout: {
+              improvedLayout:true
+            }
           };
 
           // initialize your network!
