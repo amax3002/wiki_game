@@ -1,6 +1,6 @@
 
 <h1 class="text-center">
-  <h1>Moves#new</h1>
+  <h1>Moves Path</h1>
 </h1>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
@@ -25,12 +25,13 @@
     <% end %>
   </tbody>
 </table>
-
+<br>
+<%= render 'nodemap', player: @player %>
 </div>
 
-<br>
 
-<%= render 'nodemap', player: @player %>
+
+
 <br>
 <br>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>

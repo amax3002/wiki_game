@@ -7,15 +7,17 @@
     <h1>You have been Challenge to a Wikipedia game!</h1>
     <p>
       Hoowdy <%= @challenge.recipient_name%>,
-
+</p>
+<p>
       Your "friend" <%= User.find_by(id: @challenge.challenger_id).full_name %> has sent this request for a battle of clicks!
-
+      </p>
       You will see who can go from <%=URI.decode(@challenge.game.start_point) %> to <%=URI.decode(@challenge.game.end_point) %> in the fewest clicks and/or the quickest amount of time.
-
+<p>
       If you dare, click the link and see who is the Wiki Master!!!
         Link => <%= @url %>
+            </p>
       <br>
-    </p>
+
     <p>As Always, you will fail.</p>
   </body>
 </html>

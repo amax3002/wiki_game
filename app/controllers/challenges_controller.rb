@@ -20,6 +20,6 @@ class ChallengesController < ApplicationController
   private
 
   def challenge_params
-    params.require(:challenge).permit(:game_id, :challenger_id, :recipient_id)
+    params.require(:challenge).permit(:game_id, :challenger_id, :recipient_id, :recipient_email, :recipient_name)
   end
 end

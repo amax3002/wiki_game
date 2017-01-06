@@ -1,3 +1,4 @@
+require 'uri'
 class WikiData
   TAGS_TO_REMOVE = ['.mw-editsection', '.reflist.references-column-width',
   '#References', '#Further_reading', '#External_links', '.external.text',
@@ -88,7 +89,7 @@ class WikiData
   end
 
   def http_party_setup(link_input)
-    parse_wiki_page(HTTParty.get(URI.encode(link_input)).html_safe)
+    parse_wiki_page(HTTParty.get((URI.encode(link_input)).gsub('?','%3F')).html_safe)
   end
 
   def params_path_formatter(url_path)
