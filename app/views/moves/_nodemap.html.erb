@@ -1,57 +1,74 @@
 <html>
-<head>
-    <script type="text/javascript" src="../../dist/vis.js"></script>
-    <link href="../../dist/vis.css" rel="stylesheet" type="text/css" />
+  <head>
+      <script type="text/javascript" src="../../dist/vis.js"></script>
+      <link href="../../dist/vis.css" rel="stylesheet" type="text/css" />
 
-    <style type="text/css">
-        #mynetwork {
-            width: 600px;
-            height: 400px;
-            border: 1px solid lightgray;
+      <style type="text/css">
+          #mynetwork {
+              width: 600px;
+              height: 400px;
+              border: 1px solid lightgray;
+          }
+      </style>
+  </head>
+  <body>
+    <h2>Map of Moves</h2>
+    <div id="mynetwork"></div>
+
+    <script type="text/javascript">
+      console.log("This is the window.location:", window.location.pathname.replace(/[^0-9\.]+/g, ""));
+      var foobar = window.location.pathname.replace(/[^0-9\.]+/g, "");
+      $.ajax({
+        type: "GET",
+        url: "/" + foobar + "/moves.json",
+        dataType: 'json',
+        success: function(data) {
+          var nodes = new vis.DataSet(data.nodes);
+          var edges = new vis.DataSet(data.edges);
+
+          var container = document.getElementById('mynetwork');
+
+          // provide the data in the vis format
+          var data = {
+              nodes: nodes,
+              edges: edges
+          };
+          var options = {};
+
+          // initialize your network!
+          var network = new vis.Network(container, data, options);
         }
-    </style>
-</head>
-<body>
-<div id="mynetwork"></div>
+      })
 
-<script type="text/javascript">
-  $.ajax("/38/moves.json", {
-    success: function(data) {
-      console.log('nodes are', data.nodes);
-      console.log('nodes are', data.edges);
-
-    }
-  })
-
-    // create an array with nodes
-    var nodes = new vis.DataSet([
-        {id: 1, label: 'Node 1'},
-        {id: 2, label: 'Node 2'},
-        {id: 3, label: 'Node 3'},
-        {id: 4, label: 'Node 4'},
-        {id: 5, label: 'Node 5'}
-    ]);
-
-    // create an array with edges
-    var edges = new vis.DataSet([
-        {from: 1, to: 3},
-        {from: 1, to: 2},
-        {from: 2, to: 4},
-        {from: 2, to: 5}
-    ]);
-
-    // create a network
-    var container = document.getElementById('mynetwork');
-
-    // provide the data in the vis format
-    var data = {
-        nodes: nodes,
-        edges: edges
-    };
-    var options = {};
-
-    // initialize your network!
-    var network = new vis.Network(container, data, options);
-</script>
-</body>
+        // // create an array with nodes
+        // var nodes = new vis.DataSet([
+        //     {id: 1, label: 'Node 1'},
+        //     {id: 2, label: 'Node 2'},
+        //     {id: 3, label: 'Node 3'},
+        //     {id: 4, label: 'Node 4'},
+        //     {id: 5, label: 'Node 5'}
+        // ]);
+        //
+        // // create an array with edges
+        // var edges = new vis.DataSet([
+        //     {from: 1, to: 3},
+        //     {from: 1, to: 2},
+        //     {from: 2, to: 4},
+        //     {from: 2, to: 5}
+        // ]);
+        //
+        // // create a network
+        // var container = document.getElementById('mynetwork');
+        //
+        // // provide the data in the vis format
+        // var data = {
+        //     nodes: nodes,
+        //     edges: edges
+        // };
+        // var options = {};
+        //
+        // // initialize your network!
+        // var network = new vis.Network(container, data, options);
+    </script>
+  </body>
 </html>
