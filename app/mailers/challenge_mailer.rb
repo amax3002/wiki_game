@@ -2,7 +2,7 @@ class ChallengeMailer < ApplicationMailer
 
   def send_challenge(challenge)
     @challenge = challenge
-    @url = 'http://example.com/login'
+    @url = new_user_url
     mail(
 
       to: challenge.recipient_email,

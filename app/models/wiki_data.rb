@@ -103,6 +103,7 @@ class WikiData
     elsif URI(request.referer).path == '/games'
       "Start of Game"
     else
+      binding.pry
       "https://en.wikipedia.org#{(URI(request.referer).path).split('/wikipedia')[-1]}"
     end
   end
@@ -121,6 +122,7 @@ class WikiData
   end
 
   def cheating_test(previous_link,params_path)
+    binding.pry
     if previous_link == "Start of Game"
       true
     elsif previous_link == "Are you trying to cheat??"
