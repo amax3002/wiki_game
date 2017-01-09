@@ -8,6 +8,12 @@
 
 /*-------Application nav bar formating-------*/
 
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #dfdfdf;
+  border-radius: 25px;
+  color: black;
+}
+
 .text_hover_img {
   display: none;
 }

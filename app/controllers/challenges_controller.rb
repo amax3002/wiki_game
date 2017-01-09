@@ -7,13 +7,18 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.create(challenge_params)
     flash[:success] = "You successfully sent a Challenge!"
-    ChallengeMailer.send_challenge(@challenge).deliver_now
+
     if @challenge.save
-      # send mailer action here
+      @challenge.recipient_status_known(@challenge.recipient_email)
+      ChallengeMailer.send_challenge(@challenge).deliver_now
       redirect_to games_path
     else
-      render :new
+      render :new, notice: 'Email Exists'
     end
+  end
+
+  def personal_challenges
+    @recipient = Challenge.find_by recipient_id: params[:recipient_id]
   end
 
 

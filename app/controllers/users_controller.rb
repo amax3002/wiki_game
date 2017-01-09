@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     session["message"] = "you signed up!"
     if @user.save
+      @user.find_challenges(@user.email)
       session[:current_user_id] = @user.id
       redirect_to games_path
     else

@@ -31,12 +31,12 @@ class WikiData
     words.size
   end
 
-  def clean(node)
-    node.children.each do |child|
-      clean(child)
-      child.remove if child.all.content.gsub(/\s+/, '').empty?
-    end
-  end
+  # def clean(node)
+  #   node.children.each do |child|
+  #     clean(child)
+  #     child.remove if child.all.content.gsub(/\s+/, '').empty?
+  #   end
+  # end
 
   def remove_blank_li_and_dl(input)
     input.css('li').find_all.each do |li|
@@ -68,13 +68,6 @@ class WikiData
     end
   end
 
-  # def useable_tag_removal_array(array)
-  #   binding.pry
-  #   array.map(&:inspect).join(', ')
-  # end
-
-
-
   def parse_wiki_page(html_input)
 
     parsed_data = Nokogiri::HTML.parse(html_input).search('#content')
@@ -82,14 +75,15 @@ class WikiData
     remove_blank_li_and_dl(parsed_data)
     parsed_data.css('a').each do |link|
       unless link["href"].nil? || link["href"].include?("#")
-        link["href"] = "/wikipedia#{URI.encode(link["href"])}"
+        link["href"] = "/wikipedia#{link["href"]}"
       end
     end
     parsed_data
   end
 
   def http_party_setup(link_input)
-    parse_wiki_page(HTTParty.get((URI.encode(link_input)).gsub('?','%3F')).html_safe)
+    parse_wiki_page(HTTParty.get(URI.encode(link_input)).gsub('?','%3F').html_safe)
+    # parse_wiki_page(HTTParty.get((URI.encode(URI.decode(URI.decode(link_input)))).gsub('?','%3F')).html_safe)
   end
 
   def params_path_formatter(url_path)
@@ -100,10 +94,9 @@ class WikiData
   def save_previous_url(request)
     if request.referer == nil
       "Are you trying to cheat??"
-    elsif URI(request.referer).path == '/games'
+    elsif URI(request.referer).path == '/games' || (URI(request.referer).path).include?("/challenges")
       "Start of Game"
     else
-      binding.pry
       "https://en.wikipedia.org#{(URI(request.referer).path).split('/wikipedia')[-1]}"
     end
   end
@@ -115,14 +108,13 @@ class WikiData
 
     parsed_data.css("a").map do |link|
       unless link["href"].nil? || link["href"].include?("#")
-        cheat_link_array << link["href"]
+        cheat_link_array << URI.decode(link["href"])
       end
     end
     cheat_link_array
   end
 
   def cheating_test(previous_link,params_path)
-    binding.pry
     if previous_link == "Start of Game"
       true
     elsif previous_link == "Are you trying to cheat??"

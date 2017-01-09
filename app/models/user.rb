@@ -15,4 +15,8 @@ class User < ApplicationRecord
     end
   end
 
+  def find_challenges(email)
+    Challenge.where( recipient_email: self.email ).update_all( recipient_id: self.id )
+  end
+
 end
