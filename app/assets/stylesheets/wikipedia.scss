@@ -127,6 +127,10 @@ body{
 .wikipedia {
             border: 1px solid black;
 
+            a:active {
+                background-color: yellow;
+            }
+
   //BORDERS FOR WITHIN INFO BOX
   // .infobox.geography .mergedtoprow td, .infobox.geography .mergedtoprow th {
   //     border-top: 1px solid #a2a9b1;
@@ -2704,4 +2708,56 @@ table.ambox {
     width: auto;
     display: block;
   }
+
+
+
+
+
+
+
+
+  a,a:visited,a:hover,a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.1s color ease;
+
+}
+a:hover{
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 1s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(360deg);
+  }
+}
+a.before:before,a.after:after{
+  content: "";
+  transition:0.5s all ease;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  position:absolute;
+}
+a.before:before{
+  top:-0.25em;
+}
+a.after:after{
+  bottom:-0.25em;
+}
+a.before:before,a.after:after{
+  height:5px;
+  height:0.35rem;
+  width:0;
+  background:#d73444;
+}
+
 }

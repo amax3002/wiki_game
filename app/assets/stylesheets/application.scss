@@ -8,6 +8,10 @@
 
 /*-------Application nav bar formating-------*/
 
+.sortable tr {
+    cursor: pointer;
+}
+
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #dfdfdf;
   border-radius: 25px;

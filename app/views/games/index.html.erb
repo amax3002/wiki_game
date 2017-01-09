@@ -11,7 +11,7 @@
         <tr>
           <th>Starting Article</th>
           <th>Ending Article</th>
-          <th>Options</th>
+          <th class="col_width_setting">Options</th>
         </tr>
       </thead>
 
@@ -26,7 +26,7 @@
               <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             <% end %>
               <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %>
-              <%= link_to 'Challenge a Friend',  new_game_challenge_path(game), class: "btn btn-warning" %>
+              <%= link_to 'Challenge a Friend',  new_game_challenge_path(game), class: "btn btn-warning"%>
             </td>
           </tr>
         <% end %>
@@ -41,6 +41,8 @@
 
 <br>
 
-<%= link_to 'Play Random Game', games_path, method: :post, class: "btn btn-lg btn-primary btn-block"  %>
+<%= link_to 'Play Random Game', games_path, method: :post, class: "btn btn-lg btn-primary btn-block", data: {disable_with: "Creating Game..."}   %>
 
+<br>
+<br>
 <br>

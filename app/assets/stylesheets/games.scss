@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.col_width_setting {
+  width:35%;
+  white-space: nowrap;
+}
 
 #game_index {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;

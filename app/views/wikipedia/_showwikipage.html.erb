@@ -4,12 +4,18 @@
   <br>
   <br>
   <br>
+  <br>
+  <br>
   <%= render 'americanflag'%>
 <% elsif render_cheater == true %>
   <hr>
   <%= render 'cheating'%>
 <% else %>
   <div class="wikipedia">
+  <span class="square individual">
     <%= @page_to_render.to_s.html_safe %>
+  </span>
+</div>
+
   </div>
 <% end %>
