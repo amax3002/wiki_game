@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170104200126) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "challenges", force: :cascade do |t|
     t.integer  "game_id"
     t.datetime "created_at",      null: false
@@ -64,7 +67,7 @@ ActiveRecord::Schema.define(version: 20170104200126) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end
