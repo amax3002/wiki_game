@@ -94,7 +94,7 @@ class WikiData
   def save_previous_url(request)
     if request.referer == nil
       "Are you trying to cheat??"
-    elsif URI(request.referer).path == '/games' || (URI(request.referer).path).include?("/challenges")
+    elsif URI(request.referer).path == '/games' || (URI(request.referer).path).include?("/challenges") || (URI(request.referer).path).include?("/new")
       "Start of Game"
     else
       "https://en.wikipedia.org#{(URI(request.referer).path).split('/wikipedia')[-1]}"

@@ -1,21 +1,25 @@
 <% if @won == true %>
+  <%= link_to "Look at The You Took", player_moves_path(current_player), class: "btn btn-lg btn-primary btn-block" %>
   <hr>
-  <br>
-  <br>
   <br>
   <br>
   <br>
   <br>
   <%= render 'americanflag'%>
+
+  <br>
+  <br>
+  <br>
+
+
 <% elsif render_cheater == true %>
   <hr>
   <%= render 'cheating'%>
 <% else %>
   <div class="wikipedia">
-  <span class="square individual">
-    <%= @page_to_render.to_s.html_safe %>
-  </span>
-</div>
-
+    <span class="square individual">
+      <%= @page_to_render.to_s.html_safe %>
+    </span>
   </div>
+
 <% end %>

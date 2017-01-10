@@ -11,7 +11,7 @@
         <tr>
           <th>Starting Article</th>
           <th>Ending Article</th>
-          <th class="col_width_setting">Options</th>
+          <th class="<%= "#{column_with_method}" %>">Options</th>
         </tr>
       </thead>
 
@@ -20,13 +20,12 @@
           <tr>
             <td><%= name_url_cleanup(game.start_point) %></td>
             <td><%= name_url_cleanup(game.end_point) %></td>
-            <td class="button_spacing"><%= link_to 'Play', game, class: "btn btn-info" %>
+            <td class="button_spacing"><%= play_game_link(game) %>
             <% if current_user && current_user.admin? %>
-              <%= link_to 'Edit', edit_game_path(game), class: "btn btn-warning" %>
               <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             <% end %>
               <%= link_to 'Show Leaderboard', game_leaderboards_path(game), class: "btn btn-primary" %>
-              <%= link_to 'Challenge a Friend',  new_game_challenge_path(game), class: "btn btn-warning"%>
+              <%= send_challenge_link(game) %>
             </td>
           </tr>
         <% end %>
@@ -40,8 +39,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 <br>
+<%= play_random_game_link %>
+<%= play_custom_game_link %>
 
-<%= link_to 'Play Random Game', games_path, method: :post, class: "btn btn-lg btn-primary btn-block", data: {disable_with: "Creating Game..."}   %>
 
 <br>
 <br>

@@ -1,0 +1,21 @@
+
+<% @game.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger"><%= message %></div>
+<% end %>
+
+<%= form_for game do |f| %>
+
+  <div class="form-group">
+    <%= f.label :start_point %>
+    <%= f.url_field :start_point, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :end_point %>
+    <%= f.url_field :end_point, class: 'form-control' %>
+  </div>
+
+  <hr>
+
+  <%= f.submit "Create Game", class: 'btn btn-primary', data: {disable_with: "Creating Game..."}  %>
+<% end %>

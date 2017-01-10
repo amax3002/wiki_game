@@ -15,4 +15,9 @@ class ApplicationController < ActionController::Base
   def current_player
     Player.find_by(id: session[:player_id])
   end
+
+  def authorize!
+    # flash[:danger] = "Please Login to Play"
+    redirect_to games_path unless current_user
+  end
 end

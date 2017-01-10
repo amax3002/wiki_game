@@ -22,6 +22,14 @@ class Game < ApplicationRecord
     URI(self.end_point).path
   end
 
+  def set_start_point
+    @start_point ||= WikiData.new.article_size_generate
+  end
+
+  def set_end_point
+    @end_point ||= WikiData.new.article_size_generate
+  end
+
   private
 
   def destroy_players_moves

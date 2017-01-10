@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  before_action :authorize!, except: [:index]
 
   def index
     @games = Game.all
@@ -70,7 +71,8 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end
 
+private
   def game_params
-    params.require(:game).permit(:start_point, :end_point)
+    params.permit(:game).permit(:start_point, :end_point)
   end
 end

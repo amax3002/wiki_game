@@ -1,4 +1,5 @@
 class ChallengesController < ApplicationController
+  before_action :authorize!
   def new
     @game = Game.find_by id: params[:game_id]
     @challenge = Challenge.new(game_id: @game)

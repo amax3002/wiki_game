@@ -5,13 +5,17 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
+    elsif user.id
+      can :create, Game
+      can :manage, User, id: user.id
+      can :create, Move
+      can :create, Player
+      can :manage, Challenge
+      can :read, Wiki
+      can :read, Game
+    else
+      can :read, Game, only: :index
+      can :read, Leaderboard
     end
-    can :read, Game
-    can :read, Leaderboard
-    can :manage, User, id: user.id
-    can :create, Game
-    can :create, Move
-    can :create, Player
-    can :manage, Challenge
   end
 end
