@@ -1,5 +1,15 @@
 
 <html>
+<style type="text/css">
+/*This causes the cheater link to fail*/
+/*body {
+  background: url('<%= randomized_background_image %>') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}*/
+</style>
   <head>
     <title>Wikipedia Game</title>
     <%= csrf_meta_tags %>
@@ -23,7 +33,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%= current_user.full_name %><span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to "View Profile", user_path(current_user.id) %></li>
+                <li><%= link_to "My Scoreboard", user_path(current_user.id) %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "My Challenges", personal_challenges_path(current_user) %></li>
                 <li role="separator" class="divider"></li>

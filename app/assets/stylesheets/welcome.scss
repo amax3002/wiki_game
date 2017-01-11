@@ -1,3 +1,17 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.all_instructions{
+  margin-top: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-color: lightgray;
+  border-style: groove;
+  h3{
+    font-style: oblique;
+    text-decoration: underline;
+  }
+}

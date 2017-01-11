@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  game_id: 1
+Challenge1:
+  game: Game1
+  challenger_id: users(:Alex).id
+  recipient_email: "lguy@comcast.net"
 
-two:
-  game_id: 1
+Challenge2:
+  game: Game2

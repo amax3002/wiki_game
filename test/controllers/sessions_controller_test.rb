@@ -28,4 +28,5 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_select "small", "Indulge desire for knowledge with vanquishing your enemies"
   end
 
+
 end

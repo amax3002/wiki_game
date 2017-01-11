@@ -4,12 +4,21 @@
 @import "games";
 @import "users";
 @import "vis";
+@import "welcome";
 
 
 /*-------Application nav bar formating-------*/
+
+
+
 #flag{
   padding-top: 100px;
   padding-bottom: 100px;
+}
+.icon_text_first_move{
+  font-size: 10px;
+  display: inline;
+  vertical-align: middle;
 }
 .sortable tr {
     cursor: pointer;
@@ -51,6 +60,10 @@
 }
 .nav, .navbar-header {
     text-transform: uppercase;
+}
+.navbar-nav > li.dropdown > a:hover {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .navbar-nav > li > a:hover {
     padding-top: 20px;

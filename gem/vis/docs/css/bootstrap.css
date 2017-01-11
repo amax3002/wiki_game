@@ -1031,6 +1031,7 @@ h6 .small,
   font-weight: normal;
   line-height: 1;
   color: #777;
+    vertical-align: middle;
 }
 h1,
 .h1,
@@ -1054,6 +1055,7 @@ h2 .small,
 h3 .small,
 .h3 .small {
   font-size: 65%;
+  vertical-align: middle;
 }
 h4,
 .h4,

@@ -39,48 +39,60 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   def current_game
     Game.find_by(id: session[:game_id])
   end
+  def current_user
+    User.find_by(id: session[:current_user_id])
+  end
 
   test "should get new" do
+    new_session(:Alex)
+    follow_redirect!
+
     get new_game_path
     assert_response :success
   end
 
   test "should decalre winner" do
+    new_session(:Alex)
+    follow_redirect!
+
     get games_path
     b = games(:Game1).winner?(players(:Player1))
     assert_equal "WON!", b
   end
 
   test "should decalre loser" do
+    new_session(:Alex)
+    follow_redirect!
+
     get games_path
     b = games(:Game1).winner?(players(:Player2))
     assert_equal "You did not Finish....weak", b
   end
 
   test "should get starting url path" do
+    new_session(:Alex)
+    follow_redirect!
+
     get games_path
     b = games(:Game1).create_start_wiki_path
     assert_equal "/wiki/Ottoman_Empire", b
   end
 
   test "should get ending url path" do
+    new_session(:Alex)
+    follow_redirect!
+
     get games_path
     b = games(:Game1).create_end_wiki_path
     assert_equal "/wiki/Symphony_X", b
   end
 
-  test "should be able to destroy" do
-    game_id = games(:Game1).id
-    delete game_path(game_id)
-    refute Game.find_by(id: game_id)
-  end
-
-  test "should be able to update a Game" do
-    game_id = games(:Game1).id
-    patch game_path(game_id), params: { game: { start_point: "/wiki/Dis_Guy" } }
-    assert_response :redirect
-    assert_equal "/wiki/Dis_Guy", Game.find(game_id).start_point
-  end
+  # test "should be able to update a Game" do
+  #   game_id = games(:Game1).id
+  #   patch game_path(game_id), params: { game: { start_point: "/wiki/Dis_Guy" } }
+  #   assert_response :redirect
+  #   assert_equal "/wiki/Dis_Guy", Game.find(game_id).start_point
+  # end
 
   test "can create Game" do
     new_session(:Alex)
@@ -96,11 +108,31 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   test "Play specific game (show)" do
     new_session(:Alex)
     follow_redirect!
+
     game = games(:Game1)
-    get game_path(game, users(:Alex))
+    get game_path(game)
     follow_redirect!
 
-    assert_select "h1", "Play!"
+    assert_select "h2", "YOU CHEATED!!!! YOU CHEATED!!!! YOU CHEATED!!!! YOU CHEATED!!!!"
+  end
+
+  test "delete specific game (destroy)" do
+    new_session(:Alex)
+    follow_redirect!
+    game = games(:Game1)
+    delete game_path(game)
+    follow_redirect!
+
+    assert_select "h1", "Choose Game"
+  end
+
+  test "user should be an admin" do
+    a = users(:Alex)
+    a.roles << Role.find_by(name: "admin")
+    new_session(:Alex)
+    follow_redirect!
+    
+    assert_equal true, current_user.admin?
   end
 
   test "test current game start/end name helper method" do

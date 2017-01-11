@@ -32,9 +32,6 @@ class UserTest < ActiveSupport::TestCase
       body: "",
       headers: { "Location" => "https://en.wikipedia.org/wiki/Symphony_X" }
     )
-    stub_request(:get, "http://wiki/Ottoman_Empire").
-  with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
-  to_return(:status => 200, :body => "", :headers => {})
   end
 
   test "should get split clean url path" do
@@ -44,6 +41,26 @@ class UserTest < ActiveSupport::TestCase
 
   test "should array of links" do
     b = games(:Game1).start_point
-    assert_equal "Ottoman_Empire", WikiData.new.links_to_check_cheating(b)
+    assert_equal 1116, (WikiData.new.links_to_check_cheating("https://en.wikipedia.org#{b}")).size
   end
+
+  test "cheating test start of game" do
+    a = WikiData.new.cheating_test("Start of Game", "not used")
+    assert_equal true, a
+  end
+
+  test "cheating test cheating" do
+    a = WikiData.new.cheating_test("Are you trying to cheat??", "not used")
+    assert_equal false, a
+  end
+
+  test "pulling link into cheating array" do
+    a = WikiData.new.links_to_check_cheating("https://en.wikipedia.org/wiki/Ottoman_Empire")
+    assert_equal 1116, a.size
+  end
+
+  # test "match links cheating" do
+  #   a = WikiData.new.cheating_test("/Are you trying to cheat??", "Are you trying to cheat??")
+  #   assert_equal false, a
+  # end
 end

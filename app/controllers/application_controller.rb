@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_game, :current_player
 
   def current_user
-    User.find_by(id: session["current_user_id"])
+    User.find_by(id: session[:current_user_id])
   end
 
   def current_game
