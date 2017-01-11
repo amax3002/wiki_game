@@ -22,7 +22,7 @@ module GamesHelper
 
   def play_game_link(game)
     if current_user
-      link_to 'Play', game, class: "btn btn-info"
+      link_to 'Play', game, class: "btn btn-info wiggle-me"
     else
       link_to 'Login to play', game, class: "disabled btn btn-info"
     end
