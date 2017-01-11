@@ -60,6 +60,15 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "WON!", b
   end
 
+  test "should decalre cheater" do
+    new_session(:Thomas)
+    follow_redirect!
+
+    get games_path
+    b = games(:Game1).winner?(players(:Player3))
+    assert_equal "Filthy Cheater", b
+  end
+
   test "should decalre loser" do
     new_session(:Alex)
     follow_redirect!
@@ -131,7 +140,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     a.roles << Role.find_by(name: "admin")
     new_session(:Alex)
     follow_redirect!
-    
+
     assert_equal true, current_user.admin?
   end
 

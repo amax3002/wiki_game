@@ -7,3 +7,7 @@ Player1:
 Player2:
   user: Laurent
   game: Game2
+
+Player3:
+  user: Thomas
+  game: Game2

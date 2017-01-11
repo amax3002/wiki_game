@@ -224,5 +224,15 @@ include MovesHelper
     assert_equal "What are you doing with your life???", game_move_count_funny_message
   end
 
+  test "funny game messages else statement" do
+    new_session(:Alex)
+    follow_redirect!
+    new_game(:Game1)
+
+    create_moves_for_message(220, current_player.id)
+
+    assert_equal "", game_move_count_funny_message
+  end
+
 
 end

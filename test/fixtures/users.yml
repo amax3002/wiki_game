@@ -9,3 +9,8 @@ Laurent:
   full_name: Laurent Guy
   email: lguy@comcast.net
   password_digest: <%= BCrypt::Password.create("password") %>
+
+Thomas:
+  full_name: Thomas Guy
+  email: tboyd@gmail.com
+  password_digest: <%= BCrypt::Password.create("password") %>

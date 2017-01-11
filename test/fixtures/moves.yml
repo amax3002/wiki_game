@@ -13,3 +13,8 @@ Move2:
 Move3:
   player: Player2
   to_point: https://en.wikipedia.org/wiki/United_States
+
+Move4:
+  player: Player3
+  cheater: false
+  to_point: https://en.wikipedia.org/wiki/United_States
