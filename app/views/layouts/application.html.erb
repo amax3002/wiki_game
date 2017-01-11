@@ -50,7 +50,7 @@
     </nav>
 
 
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap.min.css" rel="stylesheet"/>
     <div class="container">
       <% flash.each do |type, msg| %>
         <div class="alert alert-<%= type %>">
@@ -59,6 +59,8 @@
       <% end %>
       <%= yield %>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
 
 
   </body>
