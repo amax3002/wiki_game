@@ -56,7 +56,10 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
 
     get games_path
-    b = games(:Game1).winner?(players(:Player1))
+    game_played = games(:Game1)
+    game_played.update(start_point: "/wiki/Ottoman_Empire")
+    game_played.update(end_point: "/wiki/Symphony_X")
+    b = game_played.winner?(players(:Player1))
     assert_equal "WON!", b
   end
 

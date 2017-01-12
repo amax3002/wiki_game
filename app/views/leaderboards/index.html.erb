@@ -21,6 +21,7 @@
       <tr data-link="<%= player_moves_path(player) %>">
         <td><%= player.user.full_name %></td>
         <td><%= player.moves.count %></td>
+
         <td><%= @game.winner?(player) %></td>
         <% if player.moves.first && player.moves.last %>
           <td><%= gametimer_leaderboard(player) %></td>

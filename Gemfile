@@ -41,8 +41,6 @@ gem 'nokogiri'
 gem 'visjs-rails'
 gem "addressable"
 
-
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
