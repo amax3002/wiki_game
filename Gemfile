@@ -39,6 +39,8 @@ gem 'stripe'
 gem 'momentjs-rails'
 gem 'nokogiri'
 gem 'visjs-rails'
+gem "addressable"
+
 
 
 # Use Capistrano for deployment
