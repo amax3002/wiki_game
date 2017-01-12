@@ -3,5 +3,6 @@ class MovesController < ApplicationController
     @player = Player.find_by id: params[:player_id]
     @unique_endpoints_hash = Hash[Move.new.make_hash_node(@player)]
     @usable_edges = Move.new.make_hash_edge(@player, Hash[Move.new.make_hash_node(@player)])
+    # binding.pry
   end
 end

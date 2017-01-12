@@ -60,11 +60,26 @@
                 size:10,
                 x:5,
                 y:5
+              },
+              width: 2,
+              smooth: {
+                enabled: true,
+                type: "dynamic",
+                roundness: 5
               }
             },
             labels: {'Start of Game': {color: '#FF9900' }},
             layout: {
               improvedLayout:true
+            },
+            physics:{
+              repulsion: {
+                centralGravity: 0.2,
+                springLength: 200,
+                springConstant: 0.5,
+                nodeDistance: 10000,
+                damping: 3.9
+              }
             }
           };
 
