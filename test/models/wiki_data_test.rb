@@ -61,7 +61,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "should array of links" do
     b = games(:Game1).start_point
-    assert_equal 1116, (WikiData.new.links_to_check_cheating("https://en.wikipedia.org#{b}")).size
+    assert_equal 1116, (WikiData.new.links_to_check_cheating("https://en.wikipedia.org/#{b}")).size
   end
 
   test "cheating test start of game" do

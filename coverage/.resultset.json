@@ -987,11 +987,11 @@
         null,
         1,
         6,
-        0,
-        6,
+        2,
+        4,
         2,
         null,
-        4,
+        2,
         null,
         null,
         null,
@@ -1117,9 +1117,27 @@
         null,
         null
       ],
-      "/Users/alexandremguy/code/wiki_game/app/controllers/welcome_controller.rb": [
+      "/Users/alexandremguy/code/wiki_game/app/controllers/sessions_controller.rb": [
         1,
         1,
+        null,
+        null,
+        1,
+        41,
+        null,
+        41,
+        40,
+        40,
+        40,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
         null,
         null
       ],
@@ -1145,30 +1163,6 @@
         1,
         null,
         28,
-        null,
-        null
-      ],
-      "/Users/alexandremguy/code/wiki_game/app/controllers/sessions_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        41,
-        null,
-        41,
-        40,
-        40,
-        40,
-        null,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        2,
-        2,
         null,
         null
       ],
@@ -1293,6 +1287,12 @@
         1,
         null
       ],
+      "/Users/alexandremguy/code/wiki_game/app/controllers/welcome_controller.rb": [
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/alexandremguy/code/wiki_game/app/models/wiki_data.rb": [
         1,
         1,
@@ -1402,13 +1402,13 @@
         1,
         2,
         2,
-        1,
-        1,
-        1163,
-        1116,
+        2,
+        2,
+        2326,
+        2232,
         null,
         null,
-        1,
+        2,
         null,
         null,
         1,
@@ -1424,36 +1424,12 @@
         null,
         null
       ],
-      "/Users/alexandremguy/code/wiki_game/app/controllers/leaderboards_controller.rb": [
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
       "/Users/alexandremguy/code/wiki_game/app/controllers/moves_controller.rb": [
         1,
         1,
         1,
         1,
         1,
-        null,
-        null
-      ],
-      "/Users/alexandremguy/code/wiki_game/app/controllers/wikipedia_controller.rb": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        0,
-        0,
-        null,
         null,
         null
       ],
@@ -1502,6 +1478,30 @@
         null,
         null
       ],
+      "/Users/alexandremguy/code/wiki_game/app/controllers/leaderboards_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/alexandremguy/code/wiki_game/app/controllers/wikipedia_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
       "/Users/alexandremguy/code/wiki_game/app/channels/application_cable/channel.rb": [
         0,
         0,
@@ -1547,6 +1547,6 @@
         0
       ]
     },
-    "timestamp": 1484239526
+    "timestamp": 1484240634
   }
 }

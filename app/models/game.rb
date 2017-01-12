@@ -5,7 +5,7 @@ class Game < ApplicationRecord
   before_destroy :destroy_players_moves
 
   def winner?(player)
-    if Move.where(player: player, :to_point => "https://en.wikipedia.org#{self.end_point}").present? == true
+    if Move.where(player: player, :to_point => "https://en.wikipedia.org/#{self.end_point}").present? == true
       "WON!"
     elsif Move.where(player: player, cheater: false).count > 0
       "Filthy Cheater"

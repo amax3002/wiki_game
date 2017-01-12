@@ -119,6 +119,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
 
     game = games(:Game1)
+    game.update(start_point: "/wiki/Ottoman_Empire")
     get game_path(game)
     follow_redirect!
 
