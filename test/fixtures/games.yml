@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 Game1:
-  start_point: /wiki/Ottoman_Empire
-  end_point: /wiki/Symphony_X
+  start_point: wiki/Ottoman_Empire
+  end_point: wiki/Symphony_X
 
 Game2:
   start_point: MyString
   end_point: MyString
+
+Game3:
+  start_point: wiki/Are_We_There_Yet%3F_(TV_series)
+  end_point: wiki/Ottoman_Empire

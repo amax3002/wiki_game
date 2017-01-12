@@ -26,9 +26,13 @@ class Move < ApplicationRecord
   end
 
   def make_hash_node(player)
+    # binding.pry
     zipped = unique_end_points_game_moves(player).zip(make_key_list(player))
+    # binding.pry
     zipped
+    # color: {background:'pink', border:'purple'}
   end
+
 
   def make_hash_edge(player, node)
     array_of_edge_hash = []

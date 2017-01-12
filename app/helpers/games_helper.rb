@@ -29,12 +29,12 @@ module GamesHelper
   end
 
   def column_with_method
+    return "col_width_setting_disabled" unless current_user
+
     if current_user.admin?
       "col_width_setting_admin"
-    elsif current_user
-      "col_width_setting"
     else
-      "col_width_setting_disabled"
+      "col_width_setting"
     end
   end
 

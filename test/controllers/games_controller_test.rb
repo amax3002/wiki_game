@@ -84,7 +84,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
     get games_path
     b = games(:Game1).create_start_wiki_path
-    assert_equal "/wiki/Ottoman_Empire", b
+    assert_equal "wiki/Ottoman_Empire", b
   end
 
   test "should get ending url path" do
@@ -93,7 +93,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
 
     get games_path
     b = games(:Game1).create_end_wiki_path
-    assert_equal "/wiki/Symphony_X", b
+    assert_equal "wiki/Symphony_X", b
   end
 
   # test "should be able to update a Game" do

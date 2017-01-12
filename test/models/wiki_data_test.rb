@@ -18,6 +18,14 @@ class UserTest < ActiveSupport::TestCase
       body: File.read("test/fixtures/wikiepedia_responses/ottoman_empire.html"),
       headers: { "Content-Type" => "text/html" }
     )
+    stub_request(
+      :get,
+      "https://en.wikipedia.org/wiki/Are_We_There_Yet%3F_(TV_series)"
+    ).to_return(
+      status: 200,
+      body: File.read("test/fixtures/wikiepedia_responses/we_there_yet.html"),
+      headers: { "Content-Type" => "text/html" }
+    )
 
     stub_request(
       :get,
@@ -28,10 +36,22 @@ class UserTest < ActiveSupport::TestCase
         body: "",
         headers: { "Location" => "https://en.wikipedia.org/wiki/Ottoman_Empire" }
       },
-      status: 302,
-      body: "",
-      headers: { "Location" => "https://en.wikipedia.org/wiki/Symphony_X" }
-    )
+      {
+        status: 302,
+        body: "",
+        headers: { "Location" => "https://en.wikipedia.org/wiki/Symphony_X" }
+      },
+      {
+        status: 302,
+        body: "",
+        headers: { "Location" => "https://en.wikipedia.org/wiki/Are_We_There_Yet%3F_(TV_series)" }
+      })
+  end
+
+  test "expand_wikipedia_article method" do
+    url = "wiki/Are_We_There_Yet?_(TV_series)"
+    assert_equal WikiData.new.expand_wikipedia_article(url),
+     "https://en.wikipedia.org/wiki/Are_We_There_Yet%3F_(TV_series)"
   end
 
   test "should get split clean url path" do

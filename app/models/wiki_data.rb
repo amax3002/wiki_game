@@ -1,4 +1,5 @@
 require 'uri'
+require "addressable/uri"
 class WikiData
   TAGS_TO_REMOVE = ['.mw-editsection', '.reflist.references-column-width',
   '#References', '#Further_reading', '#External_links', '.external.text',
@@ -30,13 +31,6 @@ class WikiData
     words = doc.gsub("\n","").gsub("\t","")
     words.size
   end
-
-  # def clean(node)
-  #   node.children.each do |child|
-  #     clean(child)
-  #     child.remove if child.all.content.gsub(/\s+/, '').empty?
-  #   end
-  # end
 
   def remove_blank_li_and_dl(input)
     input.css('li').find_all.each do |li|
@@ -75,15 +69,23 @@ class WikiData
     remove_blank_li_and_dl(parsed_data)
     parsed_data.css('a').each do |link|
       unless link["href"].nil? || link["href"].include?("#")
-        link["href"] = "/wikipedia#{link["href"]}"
+        link["href"] = p "/wikipedia#{link["href"]}"
       end
     end
     parsed_data
   end
 
-  def http_party_setup(link_input)
-    parse_wiki_page(HTTParty.get(URI.encode(link_input)).gsub('?','%3F').html_safe)
-    # parse_wiki_page(HTTParty.get((URI.encode(URI.decode(URI.decode(link_input)))).gsub('?','%3F')).html_safe)
+  def get_page(url)
+    Rails.logger.warn("Getting Wikiepedia Page: #{url}")
+    parse_wiki_page(HTTParty.get(url).html_safe)
+  end
+
+  def expand_wikipedia_article(article)
+    encoded_article = Addressable::URI.encode_component(
+      article,
+      Addressable::URI::CharacterClasses::PATH
+    )
+    "https://en.wikipedia.org/#{encoded_article}"
   end
 
   def params_path_formatter(url_path)
@@ -103,9 +105,8 @@ class WikiData
 
   def links_to_check_cheating(url)
     cheat_link_array = []
-    parsed_data = Nokogiri::HTML.parse(HTTParty.get(url).html_safe).search('#content')
+    parsed_data = Nokogiri::HTML.parse(HTTParty.get(url)).search('#content')
     parsed_data.search(*TAGS_TO_REMOVE).remove
-
     parsed_data.css("a").map do |link|
       unless link["href"].nil? || link["href"].include?("#")
         cheat_link_array << URI.decode(link["href"])
